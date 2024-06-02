@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/user/", user)
 
 // here user can submit their code for review 
-app.use("/api/v1/review/", code)
+app.use("/api/v1/code/", code)
 
 // this will run the server as well as db
 startServer(app);

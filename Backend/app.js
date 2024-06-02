@@ -1,6 +1,7 @@
 import express from "express";
 import startServer from "./connection.js";
-import user from "./routes/user/user_routes.js"
+import user from "./routes/user/user_routes.routes.js";
+import code from "./routes/code/code_contributing.routes.js"
 
 const app = express();
 // Middleware
@@ -13,6 +14,9 @@ app.get("/", (req, res) => {
 
 // all routes
 app.use("/api/v1/user/", user)
+
+// here user can submit their code for review 
+app.use("/api/v1/review/", code)
 
 // this will run the server as well as db
 startServer(app);

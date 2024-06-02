@@ -4,8 +4,8 @@ import Code from "../../models/code_contribution/code_contribution_models.js";
 // logic for posting the code by a user
 const postCode = async (req, res) => {
     try {
-        const { title, code } = req.body;
-        if (!title || !code) {
+        const { title, code, category } = req.body;
+        if (!title || !code || !category) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required"
@@ -19,7 +19,8 @@ const postCode = async (req, res) => {
         const post = new Code({
             user: req.user._id,
             title,
-            code
+            code,
+            category
         })
 
         const savedPost = await post.save();
@@ -38,4 +39,38 @@ const postCode = async (req, res) => {
     }
 }
 
-export default postCode;
+// now I want to fetch all the codes on the basis of category 
+const getCodesByCategory = async (req, res) => {
+    try {
+        const { category } = req.params;
+        if (!category) {
+            return res.status(400).json({
+                success: false,
+                message: "Category is required"
+            });
+        }
+
+        const codes = await Code.find({ category }).populate("user", "-password -email");
+
+        // if user input the category which is not present then 
+        if (codes.length == 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Category you mentioned is not present in the list"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            codes
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error from code controllers"
+        });
+    }
+}
+
+export { postCode, getCodesByCategory };

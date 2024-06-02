@@ -18,6 +18,10 @@ const codeSchema = new mongoose.Schema({
         type: String,
         // required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     isPublic: {
         type: Boolean,
         default: false

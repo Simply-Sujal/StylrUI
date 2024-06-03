@@ -102,4 +102,85 @@ const getAcceptedCodesByUser = async (req, res) => {
     }
 }
 
-export { postCode, getCodesByCategory, getAcceptedCodesByUser };
+
+// implementing the logic of like or unlike 
+const likeFeature = async (req, res) => {
+    try {
+        // here we will be passing the id of the post from the frontend so that we can access it from req.body.user
+        const { postId } = req.body;
+        // Check if postId is provided
+        if (!postId) {
+            return res.status(400).json({
+                success: false,
+                message: "Post ID is required"
+            });
+        }
+
+        // Update the code post with a new like from the user
+        const updatedCode = await Code.findByIdAndUpdate(
+            postId,
+            { $addToSet: { likes: req.user._id } }, // Use $addToSet to prevent duplicate likes
+            { new: true }
+        );
+
+        if (!updatedCode) {
+            return res.status(404).json({
+                success: false,
+                message: "Post not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Post liked successfully",
+            updatedCode
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error from code controllers"
+        });
+    }
+}
+
+const dislikeFeature = async (req, res) => {
+    try {
+        const { postId } = req.body;
+        if (!postId) {
+            return res.status(400).json({
+                success: false,
+                message: "Post ID is required"
+            });
+        }
+
+        // removing the like 
+        const updatedCode = await Code.findByIdAndUpdate(postId,
+            { $pull: { likes: req.user._id } },
+            { new: true },
+        )
+
+        if (!updatedCode) {
+            return res.status(404).json({
+                success: false,
+                message: "Post not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Post unliked successfully",
+            updatedCode
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error from code controllers"
+        });
+    }
+}
+
+export { postCode, getCodesByCategory, getAcceptedCodesByUser, likeFeature, dislikeFeature };

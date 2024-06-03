@@ -16,13 +16,20 @@ const atleastPasswordSize = 8;
 // register user logic 
 const registerUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, profession, location } = req.body;
 
         // Check if all fields are provided
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !location || !profession) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required"
+            });
+        }
+
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: 'Image is required , less than 250KB'
             });
         }
 
@@ -57,7 +64,10 @@ const registerUser = async (req, res) => {
         const newUser = await User.create({
             name,
             email,
-            password: hashPassword
+            password: hashPassword,
+            profession,
+            location,
+            image: req.file.location // here the url of the image inside s3
         });
 
         // Generate token

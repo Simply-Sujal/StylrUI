@@ -14,9 +14,9 @@ const codeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    demoImage: {
+    codeImage: {
         type: String,
-        // required: true
+        required: [true, "Demo Image is required"]
     },
     category: {
         type: String,
@@ -26,10 +26,12 @@ const codeSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     }],
-    isPublic: {
-        type: Boolean,
-        default: false
+    status: {
+        type: String,
+        enum: ['pending', 'approved', 'rejected'],
+        default: 'pending'
     }
+
 },
     {
         timestamps: true

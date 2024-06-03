@@ -11,23 +11,22 @@ const s3Client = new S3Client({
     },
 });
 
-const upload = multer({
+const uploadCodeImage = multer({
     storage: multerS3({
         s3: s3Client,
         bucket: process.env.S3_BUCKET_NAME,
         contentType: multerS3.AUTO_CONTENT_TYPE,
         key: function (req, file, cb) {
-            cb(null, `user-profile-images/image-${Date.now().toString()}-${file.originalname}`);
+            cb(null, `code-images/${Date.now().toString()}-${file.originalname}`);
         }
     }),
     fileFilter: function (req, file, cb) {
-        const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        if (!allowedMimeTypes.includes(file.mimetype)) {
-            return cb(new Error('Only image files are allowed!'), false);
+        if (file.mimetype !== 'image/webp') {
+            return cb(new Error('Only .webp format allowed!'), false);
         }
         cb(null, true);
     },
     limits: { fileSize: 250 * 1024 } // 250 KB size limit
 });
 
-export default upload;
+export default uploadCodeImage;

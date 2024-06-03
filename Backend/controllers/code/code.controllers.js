@@ -12,6 +12,11 @@ const postCode = async (req, res) => {
             });
         }
 
+        if (!req.file) {
+            return res.status(400).json({ error: 'Code image is required and should be in .webp format' });
+        }
+
+
         // for not getting password of the user 
         req.user.password = undefined;
         // console.log(req.user);
@@ -20,7 +25,8 @@ const postCode = async (req, res) => {
             user: req.user._id,
             title,
             code,
-            category
+            category,
+            codeImage: req.file.location // URL of the uploaded code image in S3
         })
 
         const savedPost = await post.save();
@@ -74,12 +80,12 @@ const getCodesByCategory = async (req, res) => {
 }
 
 
-// Fetch accepted codes by user
+// Fetch accepted codes by user to show on their profiles
 const getAcceptedCodesByUser = async (req, res) => {
     try {
         const userId = req.user._id;
 
-        const acceptedCodes = await Code.find({ user: userId, isPublic: true }).populate("user", "_id name codes category")
+        const acceptedCodes = await Code.find({ user: userId, status: "approved" }).populate("user", "_id name codes category")
 
         if (acceptedCodes.length == 0) {
             return res.status(404).json({

@@ -1,4 +1,5 @@
 import Code from "../../models/code_contribution/code_contribution_models.js";
+import nodemailer from "nodemailer";
 
 
 // logic for posting the code by a user
@@ -36,6 +37,35 @@ const postCode = async (req, res) => {
             message: "User successfully post the code for review",
             savedPost
         })
+
+        // Send a thank-you email to the user
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            secure: true,
+            port: 465,
+            auth: {
+                user: process.env.USER_EMAIL,
+                pass: process.env.USER_PASSWORD
+            }
+        });
+
+        const mailOptions = {
+            from: process.env.USER_EMAIL,
+            to: req.user.email,
+            subject: 'Thank you for sharing your code!',
+            text: 'Thank you for sharing your code! We will review it soon.',
+            html: '<p>Thank you for sharing your code! We will review it soon.</p>'
+        };
+
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+
+
     } catch (error) {
         console.log(error);
         return res.status(500).json({

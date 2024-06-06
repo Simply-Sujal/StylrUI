@@ -2,6 +2,7 @@ import express from "express";
 import startServer from "./connection.js";
 import user from "./routes/user/user_routes.routes.js";
 import code from "./routes/code/code_contributing.routes.js"
+import admin from "./routes/admin/admin.routes.js";
 
 const app = express();
 // Middleware
@@ -17,6 +18,9 @@ app.use("/api/v1/user/", user)
 
 // here user can submit their code for review 
 app.use("/api/v1/code/", code)
+
+// admin route 
+app.use("/api/v1/admin", admin);
 
 // this will run the server as well as db
 startServer(app);

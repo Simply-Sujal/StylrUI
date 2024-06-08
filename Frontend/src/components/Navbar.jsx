@@ -13,7 +13,7 @@ const NavBar = () => {
     };
 
     return (
-        <nav className="bg-white fixed w-full top-0 z-50 ">
+        <nav className="bg-white fixed w-full top-14 z-50 ">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 {/* Left: Logo */}
                 <div className="flex items-center space-x-4 md:ml-10">

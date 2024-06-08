@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { FaGithub, FaBars } from 'react-icons/fa';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import websiteLogo from "../assets/websitelogo.webp";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ const NavBar = () => {
     };
 
     return (
-        <nav className="bg-white fixed w-full top-14 z-50 ">
+        <nav className="bg-white fixed w-full top-14 z-50 shadow-sm">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 {/* Left: Logo */}
                 <div className="flex items-center space-x-4 md:ml-10">
@@ -38,14 +39,14 @@ const NavBar = () => {
 
                 {/* Right: GitHub Link and Sign In */}
                 <div className="flex items-center space-x-5 pr-0 md:pr-16">
-                    <a href="https://github.com/Simply-Sujal" className="text-gray-800 hover:text-gray-600">
+                    <a href="https://github.com/Simply-Sujal" target='_blank' className="text-gray-800 hover:text-gray-600">
                         <FaGithub size={24} />
                     </a>
-                    <a href="#_" className="rounded relative inline-flex group items-center justify-center px-3 py-[6px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
+                    <Link to="/login" className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
                         <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
                         <span className="relative">Sign In</span>
                         <IoIosArrowRoundForward className='text-[30px] pt-[3px]' />
-                    </a>
+                    </Link>
                     <button onClick={toggleMenu} className="md:hidden text-gray-800 hover:text-gray-600">
                         <FaBars size={24} />
                     </button>

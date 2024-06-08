@@ -18,7 +18,7 @@ const NavBar = () => {
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 {/* Left: Logo */}
                 <div className="flex items-center space-x-4 md:ml-10">
-                    <img className="h-8 w-8 md:h-24 md:w-24 cursor-pointer" src={websiteLogo} alt="Logo" />
+                    <Link to="/"><img className="h-8 w-8 md:h-24 md:w-24 cursor-pointer" src={websiteLogo} alt="Logo" /></Link>
                     <div className="hidden md:block relative">
                         <input
                             type="text"

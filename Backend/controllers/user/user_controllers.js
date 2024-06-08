@@ -29,7 +29,7 @@ const registerUser = async (req, res) => {
         if (!req.file) {
             return res.status(400).json({
                 success: false,
-                message: 'Image is required , less than 250KB'
+                message: 'Image is required and should be less than 250KB'
             });
         }
 
@@ -67,7 +67,7 @@ const registerUser = async (req, res) => {
             password: hashPassword,
             profession,
             location,
-            image: req.file.location // here the url of the image inside s3
+            image: req.file.location // Assuming you save the file locally
         });
 
         // Generate token
@@ -88,6 +88,7 @@ const registerUser = async (req, res) => {
         });
     }
 };
+
 
 const loginUser = async (req, res) => {
     try {

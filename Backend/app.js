@@ -1,10 +1,19 @@
 import express from "express";
+import cors from "cors";
 import startServer from "./connection.js";
 import user from "./routes/user/user_routes.routes.js";
 import code from "./routes/code/code_contributing.routes.js"
 import admin from "./routes/admin/admin.routes.js";
 
 const app = express();
+
+// handling cors policy issue
+const corsOptions = {
+    origin: "http://localhost:5173",
+    methods: 'GET,PUT,POST,DELETE,PATCH,HEAD',
+    credentials: true
+}
+app.use(cors(corsOptions));
 // Middleware
 app.use(express.json());
 

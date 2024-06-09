@@ -142,4 +142,19 @@ const loginUser = async (req, res) => {
     }
 }
 
-export { registerUser, loginUser };
+
+// getting user info who is login
+const userDetails = async (req, res) => {
+    try {
+        const user = req.user;
+        // console.log(user);
+        res.status(200).json({
+            success: true,
+            user
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { registerUser, loginUser, userDetails };

@@ -17,7 +17,7 @@ const authMiddleware = async (req, res, next) => {
 
         const token = authorization.replace("Bearer ", "");
 
-        jwt.verify(token, process.env.SECRET_KEY, async (err, payload) => {
+        const userDetails = jwt.verify(token, process.env.SECRET_KEY, async (err, payload) => {
             if (err) {
                 return res.status(401).json({
                     success: false,
@@ -28,7 +28,8 @@ const authMiddleware = async (req, res, next) => {
             const { _id } = payload;
 
             try {
-                const userData = await User.findById(_id);
+                const userData = await User.findById(_id).select({ password: 0, __v: 0 })
+                // console.log("this is user data ", userData);
                 if (!userData) {
                     return res.status(401).json({
                         success: false,

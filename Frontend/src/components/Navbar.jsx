@@ -1,13 +1,28 @@
 // src/components/NavBar.jsx
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaGithub, FaBars } from 'react-icons/fa';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import websiteLogo from "../assets/websitelogo.webp";
 import { Link } from 'react-router-dom';
+import { useAuth } from '../store/Auth';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [userImage, setUserImage] = useState("");
+
+    const { isTokenAvailable, user } = useAuth();
+    // console.log(user);
+
+    // const [userData, setUserData] = useState(true);
+
+    useEffect(() => {
+        if (user) {
+            setUserImage(user.image)
+        }
+        // setUserData(false);
+    }, [user])
+
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -42,11 +57,21 @@ const NavBar = () => {
                     <a href="https://github.com/Simply-Sujal" target='_blank' className="text-gray-800 hover:text-gray-600">
                         <FaGithub size={24} />
                     </a>
-                    <Link to="/login" className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
-                        <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
-                        <span className="relative">Sign In</span>
-                        <IoIosArrowRoundForward className='text-[30px] pt-[3px]' />
-                    </Link>
+
+                    {isTokenAvailable ? (
+                        <Link to="/profile" >
+                            <img src={userImage} alt="User profile image" className='rounded-full h-10 w-10' />
+                        </Link>
+                    ) : (
+                        <Link to="/login" className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
+                            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                            <span className="relative">Sign In</span>
+                            <IoIosArrowRoundForward className='text-[30px] pt-[3px]' />
+                        </Link>
+                    )}
+
+
+
                     <button onClick={toggleMenu} className="md:hidden text-gray-800 hover:text-gray-600">
                         <FaBars size={24} />
                     </button>

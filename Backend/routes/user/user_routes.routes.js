@@ -1,5 +1,5 @@
 import express from "express";
-import { loginUser, registerUser } from "../../controllers/user/user_controllers.js";
+import { loginUser, registerUser, userDetails } from "../../controllers/user/user_controllers.js";
 import authMiddleware from "../../middlewares/auth_middlewares.js";
 import upload from "../../utils/uploadConfig.js";
 
@@ -10,6 +10,9 @@ router.post("/register", upload.single('image'), registerUser)
 
 // this is the login user route
 router.post("/login", loginUser)
+
+// this is the userinfo routes 
+router.get("/userinfo", authMiddleware, userDetails);
 
 // protected route
 router.get("/protected", authMiddleware, (req, res) => {

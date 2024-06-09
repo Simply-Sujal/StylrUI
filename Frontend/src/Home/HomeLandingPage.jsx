@@ -6,8 +6,8 @@ import LandingPageButtons from '../components/LandingPageButtons';
 
 const HomeLandingPage = () => {
     return (
-        <div className="flex flex-col items-center justify-center md:min-h-screen bg-white pt-20 p-2 md:p-4">
-            <main className='max-w-[1080px] flex flex-col gap-2 md:gap-5'>
+        <div className="flex flex-col items-center justify-center md:min-h-screen bg-white pt-36 md:pt-20 p-2 md:p-4">
+            <main className='max-w-[1080px] flex flex-col gap-2 md:gap-10'>
                 <AdvertiseSkillez />
                 <div>
                     <h1 className="text-4xl md:text-7xl font-roboto font-extrabold text-left md:text-center text-gray-800 mb-2 md:mb-6 opacity-100 tracking-tighter">

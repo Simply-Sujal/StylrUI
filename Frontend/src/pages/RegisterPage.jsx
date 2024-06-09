@@ -53,7 +53,7 @@ const RegisterPage = () => {
                     password: '',
                     image: null,
                 })
-                navigate("/login");
+                navigate("/");
             }
 
             const result = await response.json();

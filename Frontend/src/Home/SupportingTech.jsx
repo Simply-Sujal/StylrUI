@@ -1,14 +1,17 @@
 import React from 'react'
 import technology from "../../public/technology"
+import Topic from '../components/Topic'
 
 const SupportingTech = () => {
     return (
         <section className='w-full bg-gray-50 mt-28'>
             <main className='px-4 md:px-20 pt-10 md:pt-20 md:pb-20 pb-16'>
                 <div class="text-center py-4">
-                    <h1 class="text-4xl md:text-5xl font-roboto font-extrabold text-gray-800 mb-4">KuratedKomponent Compatibility with Technologies</h1>
-                    <p className='text-slate-600 leading-8 text-[19px] md:text-[22px] pt-5 md:pt-4 font-mulsih font-semibold tracking-wide text-center'>Enhance your workflow with seamless integrations for your favorite tools using Kurated Komponent.
-                    </p>
+                    <Topic
+                        smallHeading="Integration Ready"
+                        mainHeading="KuratedKomponent Compatibility with Technologies"
+                        aboutHeading="Enhance your workflow with seamless integrations for your favorite tools using Kurated Komponent."
+                    />
                 </div>
 
 

@@ -7,7 +7,9 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Logout from './pages/Logout';
 import UserProfile from './pages/UserProfile';
-import ComponentsPage from './pages/ComponetsPage';
+import ComponentsCategory from './DifferentComponents/ComponentsCategory';
+import ComponentDisplay from './DifferentComponents/ComponentDisplay';
+import CodeSubmissionForm from './components/CodeSubmissionForm';
 
 const App = () => {
   return (
@@ -16,7 +18,13 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/components' element={<ComponentsPage />} />
+        {/* <Route path='/components' element={<ComponentsPage />} /> */}
+        <Route path='/components' element={<ComponentsCategory />} />
+        <Route path='/components/:category' element={<ComponentDisplay />} />
+
+
+        {/* User can submit code for any category for review making  */}
+        <Route path='/codesubmissionform' element={<CodeSubmissionForm />} />
 
 
         {/* user authentication  */}

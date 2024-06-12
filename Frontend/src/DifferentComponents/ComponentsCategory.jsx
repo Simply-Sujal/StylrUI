@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryComponent from './CategoryComponent';
 
-const categories = ['alert', 'accordion', 'dropdown', 'footer', 'form'];
+const categories = ['alert', 'accordion', 'dropdown', 'footer', 'form', 'dialog box'];
 
 const ComponentsCategory = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -13,7 +13,7 @@ const ComponentsCategory = () => {
     );
 
     const handleCategoryClick = (category) => {
-        navigate(`/category/${category}`);
+        navigate(`/components/${category}`);
     };
 
     return (
@@ -29,13 +29,12 @@ const ComponentsCategory = () => {
                             className='border rounded px-4 py-2 w-full max-w-md'
                         />
                     </div>
-                    <nav className='grid grid-cols-4 gap-5'>
+                    <nav className='grid grid-cols-4 justify-center gap-5'>
                         {filteredCategories.map(category => (
-                            <div>
+                            <div key={category}>
                                 <button
-                                    key={category}
                                     onClick={() => handleCategoryClick(category)}
-                                    className={`px-2 py-2 rounded`}
+                                    className='block w-full'
                                 >
                                     <CategoryComponent componentHeading={category} aboutComponent={`Details about ${category}`} />
                                 </button>

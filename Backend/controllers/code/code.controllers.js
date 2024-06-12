@@ -19,7 +19,7 @@ const postCode = async (req, res) => {
 
 
         // for not getting password of the user 
-        req.user.password = undefined;
+        // req.user.password = undefined;
         // console.log(req.user);
         // res.send("ok");
         const post = new Code({
@@ -86,7 +86,7 @@ const getCodesByCategory = async (req, res) => {
             });
         }
 
-        const codes = await Code.find({ category }).populate("user likes", "-password -email");
+        const codes = await Code.find({ category, status: "approved" }).populate("user likes", "-password -email");
 
         // if user input the category which is not present then 
         if (codes.length == 0) {

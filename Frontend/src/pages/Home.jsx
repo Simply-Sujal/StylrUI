@@ -7,6 +7,8 @@ import SupportingTech from '../Home/SupportingTech'
 import MainFeature from '../Home/MainFeature'
 import OurSpeciality from '../Home/OurSpeciality'
 import JoinOurCommunity from '../Home/JoinOurCommunity'
+import Newsletter from '../components/Newsletter'
+import Footer from '../components/Footer'
 
 const Home = () => {
     return (
@@ -23,6 +25,8 @@ const Home = () => {
 
             <OurSpeciality />
             <JoinOurCommunity />
+            <Newsletter />
+            <Footer />
 
         </>
     )

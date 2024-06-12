@@ -17,7 +17,7 @@ const JoinOurCommunity = () => {
                     />
                 </div>
 
-                <div className='flex justify-between gap-4 mt-20'>
+                <div className='flex justify-between md:flex-row flex-col gap-4 mt-20'>
                     <OurSocials
                         socialsImage={whatsapp}
                         smallHeading="WhatsApp"

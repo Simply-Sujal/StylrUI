@@ -86,7 +86,7 @@ const getCodesByCategory = async (req, res) => {
             });
         }
 
-        const codes = await Code.find({ category }).populate("user", "-password -email");
+        const codes = await Code.find({ category }).populate("user likes", "-password -email");
 
         // if user input the category which is not present then 
         if (codes.length == 0) {

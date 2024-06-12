@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Logout from './pages/Logout';
 import UserProfile from './pages/UserProfile';
+import ComponentsPage from './pages/ComponetsPage';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/components' element={<ComponentsPage />} />
 
 
         {/* user authentication  */}

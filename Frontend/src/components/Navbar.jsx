@@ -45,7 +45,7 @@ const NavBar = () => {
 
                 {/* Center: Navigation Links */}
                 <div className="hidden md:flex space-x-6 text-[16px] font-roboto font-medium md:pr-32">
-                    <a href="#" className="text-gray-800 hover:text-[#FF7D29] transition-all duration-200">Components</a>
+                    <Link to="/components" className="text-gray-800 hover:text-[#FF7D29] transition-all duration-200">Components</Link>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Blocks</a>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Figmaa</a>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Blog</a>
@@ -54,9 +54,6 @@ const NavBar = () => {
 
                 {/* Right: GitHub Link and Sign In */}
                 <div className="flex items-center space-x-5 pr-0 md:pr-16">
-                    <a href="https://www.buymeacoffee.com/sujalkumarc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-roboto text-slate-800 bg-[#ffdd00] hover:bg-yellow-300 focus:bg-yellow-500 font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out">
-                        ☕ Buy Me a Coffee
-                    </a>
 
                     <a href="https://github.com/Simply-Sujal" target='_blank' className="text-gray-800 hover:text-gray-600">
                         <FaGithub size={24} />

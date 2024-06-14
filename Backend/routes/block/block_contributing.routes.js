@@ -1,13 +1,13 @@
 import express from "express";
 import { postBlockCode, getBlockCodesByCategory, getAcceptedBlockCodesByUser, likeFeature, dislikeFeature } from "../../controllers/block/block.controllers.js";
-import uploadCodeImage from "../../utils/uploadCodeImage.js";
+import uploadBlockImage from "../../utils/uploadCodeImage.js";
 import requireLogin from "../../middlewares/auth_middlewares.js"
 
 
 const router = express.Router();
 
 // this is the route for submission of the block code for review
-router.post("/codesubmission", requireLogin, uploadCodeImage.single('codeImage'), postBlockCode);
+router.post("/codesubmission", requireLogin, uploadBlockImage.single('codeImage'), postBlockCode);
 
 // this is the route for getting all block codes by category only if it is approved 
 router.get("/category/:category", getBlockCodesByCategory);

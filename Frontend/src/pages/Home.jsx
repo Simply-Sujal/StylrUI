@@ -9,6 +9,8 @@ import OurSpeciality from '../Home/OurSpeciality'
 import JoinOurCommunity from '../Home/JoinOurCommunity'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
+// import ComponentsCategory from '../DifferentComponents/ComponentsCategory'
+import HomeCategoryShow from '../Home/HomeCategoryShow'
 
 const Home = () => {
     return (
@@ -21,13 +23,10 @@ const Home = () => {
             <MainFeature />
 
             {/* here I will add our latest components example for about 20 or 25  */}
-            {/* <OurInbuiltComponents /> */}
-
+            <HomeCategoryShow />
             <OurSpeciality />
             <JoinOurCommunity />
             <Newsletter />
-            <Footer />
-
         </>
     )
 }

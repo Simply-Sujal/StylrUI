@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../store/Auth';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-github';
+import 'ace-builds/src-noconflict/theme-dracula'; // Import the chosen theme
+
+const categories = [
+    "Accordion", "Alert", "Artboard", "Avatar", "Badge", "Bottom navigation", "Breadcrumbs", "Button",
+    "Card", "Carousel", "Chat bubble", "Checkbox", "Collapse", "Countdown", "Diff", "Divider", "Drawer",
+    "Dropdown", "File Input", "Footer", "Hero", "Indicator", "Join", "Kbd", "Link", "Loading", "Mask",
+    "Menu", "Browser mockup", "Code mockup", "Phone mockup", "Window mockup", "Modal", "Navbar", "Pagination",
+    "Progress", "Radial progress", "Radio", "Range slider", "Rating", "Select", "Skeleton", "Stack", "Stat",
+    "Steps", "Swap", "Tabs", "Table", "Textarea", "Theme Controller", "Timeline", "Toast", "Toggle", "Tooltip"
+];
 
 const CodeSubmissionForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         code: '',
-        category: '',
+        category: '', // Updated state to include category
         codeImage: null,
     });
-
-    const { storingTokenInLS } = useAuth();
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -47,16 +51,13 @@ const CodeSubmissionForm = () => {
                 const result = await response.json();
                 console.log(result);
 
-                storingTokenInLS(result.token);
-
                 setFormData({
                     title: '',
                     code: '',
                     category: '',
                     codeImage: null,
                 });
-
-                navigate('/');
+                alert("Code successfully submitted")
             } else {
                 const errorResult = await response.json();
                 console.error('Error:', errorResult.message);
@@ -83,14 +84,17 @@ const CodeSubmissionForm = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 font-roboto font-bold">Category</label>
-                    <input
-                        type="text"
+                    <select
                         name="category"
                         value={formData.category}
                         onChange={handleChange}
-                        placeholder="Enter category for your code"
                         className="mt-1 p-2 w-full border rounded font-roboto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
-                    />
+                    >
+                        <option value="">Select a category...</option>
+                        {categories.map(category => (
+                            <option key={category} value={category}>{category}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="code_editor">
@@ -98,7 +102,7 @@ const CodeSubmissionForm = () => {
                     </label>
                     <AceEditor
                         mode="javascript"
-                        theme="github"
+                        theme="dracula"
                         value={formData.code}
                         onChange={(code) => setFormData({ ...formData, code })}
                         name="code_editor"
@@ -106,7 +110,17 @@ const CodeSubmissionForm = () => {
                         placeholder="Write your code here..."
                         width="100%"
                         height="400px"
-                        className="border border-gray-300 rounded-lg"
+                        fontSize={14}
+                        setOptions={{
+                            showLineNumbers: true,
+                            tabSize: 2,
+                        }}
+                        style={{
+                            borderRadius: '8px',
+                            padding: '15px',
+                            fontFamily: 'monospace',
+                        }}
+                        className="transition-all duration-200 ease-in-out focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div className="mb-4">

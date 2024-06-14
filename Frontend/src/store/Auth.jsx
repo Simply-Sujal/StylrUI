@@ -3,29 +3,28 @@ import { createContext, useContext, useEffect, useState } from "react";
 // context
 export const AuthContext = createContext();
 
-
 // provider
 export const AuthProvider = ({ children }) => {
 
     const [token, setToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState("");
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
     const authorizationToken = `Bearer ${token}`;
 
     const storingTokenInLS = (serverToken) => {
         setToken(serverToken);
-        return localStorage.setItem("token", serverToken);
-    }
+        localStorage.setItem("token", serverToken);
+        return Promise.resolve();
+    };
 
     // checking whether the token state variable has token or not 
-    const isTokenAvailable = !!token;
-    // console.log(isTokenAvailable)
+    let isTokenAvailable = !!token;
 
     // logout user 
     const logOutUser = () => {
         setToken("");
-        return localStorage.removeItem("token");
-    }
+        localStorage.removeItem("token");
+    };
 
     // JWT AUTHENTICATION : to get in the currently user logged in data 
     const userAuthentication = async () => {
@@ -47,19 +46,22 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     useEffect(() => {
-        userAuthentication();
-    }, [])
+        if (token) {
+            userAuthentication();
+        } else {
+            setIsLoading(false);
+        }
+    }, [token]);
 
-
-
-
-    return <AuthContext.Provider value={{ isTokenAvailable, storingTokenInLS, logOutUser, user }}>
-        {children}
-    </AuthContext.Provider>
-}
+    return (
+        <AuthContext.Provider value={{ isTokenAvailable, storingTokenInLS, logOutUser, user }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
 
 // consumer
 export const useAuth = () => {
@@ -68,4 +70,4 @@ export const useAuth = () => {
         throw new Error("useAuth used outside of the Provider");
     }
     return authContextValue;
-}
+};

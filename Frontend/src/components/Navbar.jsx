@@ -46,7 +46,7 @@ const NavBar = () => {
                 {/* Center: Navigation Links */}
                 <div className="hidden md:flex space-x-6 text-[16px] font-roboto font-medium md:pr-32">
                     <Link to="/components" className="text-gray-800 hover:text-[#FF7D29] transition-all duration-200">Components</Link>
-                    <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Blocks</a>
+                    <Link to="/blocks" className="text-gray-800 hover:text-[#FF7D29] transition-all duration-200">Blocks</Link>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Figmaa</a>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Blog</a>
                     <a href="#" className="text-gray-800 hover:text-[#FF7D29]">Pricing & FAQ</a>

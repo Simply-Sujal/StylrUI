@@ -1,42 +1,46 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryComponent from './CategoryComponent';
+import categories from '../../public/categories';
 
-const categories = ['alert', 'accordion', 'dropdown', 'footer', 'form', 'dialog box'];
 
 const ComponentsCategory = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
 
     const filteredCategories = categories.filter(category =>
-        category.toLowerCase().includes(searchQuery.toLowerCase())
+        category.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const handleCategoryClick = (category) => {
-        navigate(`/components/${category}`);
+    const handleCategoryClick = (categoryName) => {
+        navigate(`/components/${categoryName}`);
     };
 
     return (
         <section className='w-full mt-10'>
-            <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
-                <div className='container mx-auto pt-32'>
-                    <div className='flex justify-center mb-4'>
+            <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-16'>
+                <div className='mx-auto pt-28'>
+                    <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents</h1>
+                    <div className='flex justify-end mb-4 mr-3'>
                         <input
                             type='text'
-                            placeholder='Search by category...'
+                            placeholder='Search by category 🔍'
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className='border rounded px-4 py-2 w-full max-w-md'
+                            className='border rounded px-4 py-2 w-[300px]'
                         />
                     </div>
-                    <nav className='grid grid-cols-4 justify-center gap-5'>
+                    <nav className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-8'>
                         {filteredCategories.map(category => (
-                            <div key={category}>
+                            <div key={category.category} className='hover:scale-105 transition-all duration-150'>
                                 <button
-                                    onClick={() => handleCategoryClick(category)}
+                                    onClick={() => handleCategoryClick(category.category)}
                                     className='block w-full'
                                 >
-                                    <CategoryComponent componentHeading={category} aboutComponent={`Details about ${category}`} />
+                                    <CategoryComponent
+                                        componentHeading={category.category}
+                                        aboutComponent={category.description}
+                                    />
                                 </button>
                             </div>
                         ))}

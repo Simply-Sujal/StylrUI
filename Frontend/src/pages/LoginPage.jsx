@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/Auth';
 
 const LoginPage = () => {
@@ -9,7 +8,7 @@ const LoginPage = () => {
         password: '',
     });
 
-    const { storingTokenInLS } = useAuth();
+    const { storingTokenInLS, userAuthentication } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -17,8 +16,8 @@ const LoginPage = () => {
         setFormData({
             ...formData,
             [name]: value
-        })
-    }
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,21 +28,23 @@ const LoginPage = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(formData)
-            })
+            });
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
-                storingTokenInLS(result.token);
+                await storingTokenInLS(result.token);
                 setFormData({
                     email: '',
                     password: '',
-                })
+                });
                 navigate("/");
+                await userAuthentication(); // Fetch user data immediately after storing the token
             }
         } catch (error) {
             console.log(error);
         }
     };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[70px] md:pt-[135px]">
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
@@ -72,7 +73,7 @@ const LoginPage = () => {
                 </div>
 
                 <button type="submit">
-                    <p class="inline-flex items-center justify-center px-5 py-3 text-[18px] font-roboto font-bold tracking-wide leading-6 text-white whitespace-no-wrap bg-orange-600 border border-orange-700 rounded-lg shadow-sm hover:bg-orange-700 focus:outline-none transition-all duration-100" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
+                    <p className="inline-flex items-center justify-center px-5 py-3 text-[18px] font-roboto font-bold tracking-wide leading-6 text-white whitespace-no-wrap bg-orange-600 border border-orange-700 rounded-lg shadow-sm hover:bg-orange-700 focus:outline-none transition-all duration-100" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
                         Sign in to account
                     </p>
                 </button>
@@ -82,7 +83,7 @@ const LoginPage = () => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default LoginPage
+export default LoginPage;

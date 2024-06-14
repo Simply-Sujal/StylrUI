@@ -3,6 +3,7 @@ import cors from "cors";
 import startServer from "./connection.js";
 import user from "./routes/user/user_routes.routes.js";
 import code from "./routes/code/code_contributing.routes.js"
+import block from "./routes/block/block_contributing.routes.js"
 import admin from "./routes/admin/admin.routes.js";
 
 const app = express();
@@ -27,6 +28,9 @@ app.use("/api/v1/user/", user)
 
 // here user can submit their code for review 
 app.use("/api/v1/code/", code)
+
+// here user can submit their code for review 
+app.use("/api/v1/block/", block)
 
 // admin route 
 app.use("/api/v1/admin", admin);

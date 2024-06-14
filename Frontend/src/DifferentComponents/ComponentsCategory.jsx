@@ -30,7 +30,7 @@ const ComponentsCategory = () => {
                             className='border rounded px-4 py-2 w-[300px]'
                         />
                     </div>
-                    <nav className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-8'>
+                    <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-8'>
                         {filteredCategories.map(category => (
                             <div key={category.category} className='hover:scale-105 transition-all duration-150'>
                                 <button
@@ -44,7 +44,7 @@ const ComponentsCategory = () => {
                                 </button>
                             </div>
                         ))}
-                    </nav>
+                    </section>
                 </div>
             </main>
         </section>

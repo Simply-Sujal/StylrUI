@@ -11,7 +11,7 @@ import ComponentsCategory from './DifferentComponents/ComponentsCategory';
 import ComponentDisplay from './DifferentComponents/ComponentDisplay';
 import CodeSubmissionForm from './components/CodeSubmissionForm';
 import Footer from './components/Footer';
-import BlockCategory from './BlocksComponent/BlockCategory';
+import BlocksCategory from './BlocksComponent/BlockCategory';
 import BlockDisplay from './BlocksComponent/BlockDisplay';
 import BlockSubmissionForm from './BlocksComponent/BlockSubmissionForm';
 import CodeSubmissionPage from './BlocksComponent/CodeSubmissionPage';
@@ -29,7 +29,7 @@ const App = () => {
 
 
         {/* Here I am going to showcase the block components  */}
-        <Route path="/blocks" element={<BlockCategory />} />
+        <Route path="/blocks" element={<BlocksCategory />} />
         <Route path="/blocks/:category" element={<BlockDisplay />} />
 
 

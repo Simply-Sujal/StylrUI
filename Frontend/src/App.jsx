@@ -11,10 +11,9 @@ import ComponentsCategory from './DifferentComponents/ComponentsCategory';
 import ComponentDisplay from './DifferentComponents/ComponentDisplay';
 import CodeSubmissionForm from './components/CodeSubmissionForm';
 import Footer from './components/Footer';
-import BlocksCategory from './BlocksComponent/BlockCategory';
-import BlockDisplay from './BlocksComponent/BlockDisplay';
-import BlockSubmissionForm from './BlocksComponent/BlockSubmissionForm';
-import CodeSubmissionPage from './BlocksComponent/CodeSubmissionPage';
+import BlocksCategory from './BlocksComponent/BlocksCategory';
+import BlockCodeSubmissionForm from './components/BlockCodeSubmissionForm';
+import Blockcodes from './BlocksComponent/Blockcodes';
 
 const App = () => {
   return (
@@ -30,12 +29,12 @@ const App = () => {
 
         {/* Here I am going to showcase the block components  */}
         <Route path="/blocks" element={<BlocksCategory />} />
-        <Route path="/blocks/:category" element={<BlockDisplay />} />
+        <Route path="/blocks/:category" element={<Blockcodes />} />
 
 
         {/* User can submit code for any category for review making  */}
         <Route path='/codesubmissionform' element={<CodeSubmissionForm />} />
-        <Route path='/blockSubmissionForm' element={<CodeSubmissionPage />} />
+        <Route path='/blockSubmissionForm' element={<BlockCodeSubmissionForm />} />
 
 
         {/* user authentication  */}

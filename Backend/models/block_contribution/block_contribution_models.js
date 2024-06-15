@@ -1,6 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose"
+
 
 const BlockSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -24,12 +30,9 @@ const BlockSchema = new mongoose.Schema({
         type: String,
         enum: ['pending', 'approved', 'rejected'],
         default: 'pending'
-    },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Block', BlockSchema);
+const Block = mongoose.model("Block", BlockSchema);
+
+export default Block;

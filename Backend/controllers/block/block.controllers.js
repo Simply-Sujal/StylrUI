@@ -19,7 +19,7 @@ const postBlockCode = async (req, res) => {
 
 
         // for not getting password of the user 
-        req.user.password = undefined;
+        // req.user.password = undefined;
         // console.log(req.user);
         // res.send("ok");
         const post = new Block({
@@ -115,7 +115,7 @@ const getAcceptedBlockCodesByUser = async (req, res) => {
     try {
         const userId = req.user._id;
 
-        const acceptedBlockCodes = await Block.find({ user: userId, status: "approved" }).populate("user", "_id name codes category")
+        const acceptedBlockCodes = await Block.find({ user: userId, status: "approved" })
 
         if (acceptedBlockCodes.length == 0) {
             return res.status(404).json({
@@ -142,9 +142,7 @@ const getAcceptedBlockCodesByUser = async (req, res) => {
 // implementing the logic of like or unlike 
 const likeFeature = async (req, res) => {
     try {
-        // here we will be passing the id of the post from the frontend so that we can access it from req.body.user
         const { postId } = req.body;
-        // Check if postId is provided
         if (!postId) {
             return res.status(400).json({
                 success: false,
@@ -152,10 +150,9 @@ const likeFeature = async (req, res) => {
             });
         }
 
-        // Update the code post with a new like from the user
         const updatedBlockCode = await Block.findByIdAndUpdate(
             postId,
-            { $addToSet: { likes: req.user._id } }, // Use $addToSet to prevent duplicate likes
+            { $addToSet: { likes: req.user._id } },
             { new: true }
         );
 
@@ -191,11 +188,11 @@ const dislikeFeature = async (req, res) => {
             });
         }
 
-        // removing the like 
-        const updatedBlockCode = await Block.findByIdAndUpdate(postId,
+        const updatedBlockCode = await Block.findByIdAndUpdate(
+            postId,
             { $pull: { likes: req.user._id } },
-            { new: true },
-        )
+            { new: true }
+        );
 
         if (!updatedBlockCode) {
             return res.status(404).json({
@@ -207,7 +204,7 @@ const dislikeFeature = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Post unliked successfully",
-            updatedCode
+            updatedBlockCode
         });
 
     } catch (error) {

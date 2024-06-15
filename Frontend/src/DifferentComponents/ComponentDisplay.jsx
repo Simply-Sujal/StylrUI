@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { FaRegCopy, FaCopy } from "react-icons/fa";
+
 
 const ComponentDisplay = () => {
     const { category } = useParams();
@@ -41,12 +43,13 @@ const ComponentDisplay = () => {
     return (
         <section className='w-full pt-28'>
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
-                <h1 className='text-3xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+                <h1 className='text-5xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>
                     {components.map(component => (
                         <div key={component._id} className='border p-4 rounded bg-gray-800 text-white'>
+                            <h3 className='text-[18px] md:text-2xl font-mulsih font-bold mb-2'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
                             {component.codeImage && <img src={component.codeImage} alt={component.title} className='w-full h-32 object-cover mb-4' />}
-                            <h3 className='text-lg font-bold mb-2'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
+
                             <div className='relative'>
                                 <SyntaxHighlighter language="javascript" style={okaidia} showLineNumbers>
                                     {component.code}
@@ -55,8 +58,8 @@ const ComponentDisplay = () => {
                                     text={component.code}
                                     onCopy={() => handleCopy(component._id)}
                                 >
-                                    <button className='absolute top-2 right-2 bg-blue-500 text-white py-1 px-2 rounded'>
-                                        {copiedId === component._id ? 'Copied!' : 'Copy'}
+                                    <button className='absolute top-2 right-2 bg-blue-500 text-white py-2 px-4 rounded'>
+                                        {copiedId === component._id ? <FaCopy /> : <FaRegCopy />}
                                     </button>
                                 </CopyToClipboard>
                             </div>

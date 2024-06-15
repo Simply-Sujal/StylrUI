@@ -115,7 +115,7 @@ const getAcceptedCodesByUser = async (req, res) => {
     try {
         const userId = req.user._id;
 
-        const acceptedCodes = await Code.find({ user: userId, status: "approved" }).populate("user", "_id name codes category")
+        const acceptedCodes = await Code.find({ user: userId, status: "approved" })
 
         if (acceptedCodes.length == 0) {
             return res.status(404).json({

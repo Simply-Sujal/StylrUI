@@ -4,6 +4,7 @@ import CategoryComponent from './CategoryComponent';
 import categories from '../../public/categories';
 import LandingPageUniversal from '../components/LandingPageUniversal';
 import blockLandingImage from "../assets/BlockLanding.webp"
+import StartContributing from '../components/StartContributing';
 
 
 
@@ -55,6 +56,10 @@ const ComponentsCategory = () => {
                     </section>
                 </div>
             </main>
+            <StartContributing
+                mainHeading="Do you want to start contributing to components ?"
+                formLink="/codesubmissionform"
+            />
         </section>
     );
 };

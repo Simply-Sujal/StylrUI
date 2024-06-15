@@ -73,11 +73,11 @@ const NavBar = () => {
                         Figmaa
                     </Link>
                     <Link
-                        to="/blog"
+                        to="/contributorpage"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blog' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
                         onClick={() => handleLinkClick('blog')}
                     >
-                        Blog
+                        Contribute
                     </Link>
                     <Link
                         to="/pricing-faq"
@@ -145,11 +145,11 @@ const NavBar = () => {
                         Figmaa
                     </Link>
                     <Link
-                        to="/blog"
+                        to="/contributorpage"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blog' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
                         onClick={() => handleLinkClick('blog')}
                     >
-                        Blog
+                        Contribute
                     </Link>
                     <Link
                         to="/pricing-faq"

@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import BlocksCategory from './BlocksComponent/BlocksCategory';
 import BlockCodeSubmissionForm from './components/BlockCodeSubmissionForm';
 import Blockcodes from './BlocksComponent/Blockcodes';
+import ContributerPage from './components/ContributerPage';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         {/* <Route path='/components' element={<ComponentsPage />} /> */}
         <Route path='/components' element={<ComponentsCategory />} />
         <Route path='/components/:category' element={<ComponentDisplay />} />
+        <Route path='contributorpage' element={<ContributerPage />} />
 
 
         {/* Here I am going to showcase the block components  */}

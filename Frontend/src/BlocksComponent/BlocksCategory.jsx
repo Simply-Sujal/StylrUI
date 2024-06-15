@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Blockview from './Blockview';
 import LandingPageUniversal from '../components/LandingPageUniversal';
 import blockLandingImage from "../assets/BlockLanding.webp"
+import StartContributing from '../components/StartContributing';
 
 const BlocksCategory = () => {
     // making the search query thing 
@@ -55,6 +56,10 @@ const BlocksCategory = () => {
                     </section>
                 </div>
             </main>
+            <StartContributing
+                mainHeading="Do you want to start contributing to blocks?"
+                formLink="/blockSubmissionForm"
+            />
         </section>
     )
 }

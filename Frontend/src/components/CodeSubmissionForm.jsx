@@ -70,7 +70,7 @@ const CodeSubmissionForm = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
-                <h2 className="text-4xl font-roboto font-extrabold mb-3">Submit Your Code</h2>
+                <h2 className="text-4xl font-roboto font-extrabold mb-3">Submit Your Components Code</h2>
                 <div className="mb-4">
                     <label className="block text-gray-700 font-roboto font-bold">Title</label>
                     <input

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FaRegCopy, FaCopy } from "react-icons/fa";
+import { FaRegCopy, FaCopy, FaHeart, FaRegHeart } from "react-icons/fa";
 
 
 const ComponentDisplay = () => {
@@ -37,6 +37,42 @@ const ComponentDisplay = () => {
         setTimeout(() => setCopiedId(null), 1500); // Reset copiedId after 1.5 seconds
     };
 
+
+    // get the token from local storage 
+    const token = localStorage.getItem('token');
+
+    // now lets write for like and dislike api calling 
+    const handleLike = async (id) => {
+        try {
+            const response = await axios.put(
+                'http://localhost:4000/api/v1/code/likecode',
+                { postId: id },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component));
+        } catch (error) {
+            console.log("Error liking the components", error)
+        }
+    }
+
+    // dislike feature , api calling
+    const handleUnlike = async (id) => {
+        try {
+            const response = await axios.put('http://localhost:4000/api/v1/code/dislikecode',
+                { postId: id },
+                { headers: { Authorization: `Bearer ${token}` } }
+            )
+            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component))
+        } catch (error) {
+            console.log("Error unliking component")
+        }
+    }
+
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -63,7 +99,22 @@ const ComponentDisplay = () => {
                                     </button>
                                 </CopyToClipboard>
                             </div>
-                            <p className='mt-2'>Likes: {component.likes.length}</p>
+                            <div className='flex justify-start gap-4 mb-2 mt-2 ml-2 mr-4 pt-2'>
+                                <button
+                                    className='text-red-500 bg-red-100 flex items-center gap-1 md:gap-2 text-xs md:text-xl font-mukta font-normal px-2 py-1 md:px-3 md:py-[8px] rounded-md'
+                                    onClick={() => handleLike(component._id)}
+                                    title="Like"
+                                >
+                                    <FaHeart size={22} md:size={20} className='text-red-500' /> {component.likes.length} Likes
+                                </button>
+                                <button
+                                    className='flex bg-red-100 items-center gap-1 md:gap-2 text-xs md:text-xl font-mukta font-normal px-2 py-1 md:px-3 md:py-[8px] rounded-md  text-red-500'
+                                    onClick={() => handleUnlike(component._id)}
+                                    title="Unlike"
+                                >
+                                    <FaRegHeart size={22} md:size={20} /> Unlike
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>

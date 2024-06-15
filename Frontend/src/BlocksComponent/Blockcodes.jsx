@@ -32,7 +32,7 @@ const Blockcodes = () => {
         setTimeout(() => setCopyCode(null), 2000); // Reset after 2 seconds
     }
 
-    // Get the token from local storage or cookies
+    // Get the token from local storage
     const token = localStorage.getItem('token'); // Adjust this according to your token storage method
 
     // Handling like and unlike functionality

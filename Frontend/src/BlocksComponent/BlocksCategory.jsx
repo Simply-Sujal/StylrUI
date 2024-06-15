@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import blockcategories from '../../public/blockcategories'
 import { useNavigate } from 'react-router-dom';
 import Blockview from './Blockview';
+import LandingPageUniversal from '../components/LandingPageUniversal';
+import blockLandingImage from "../assets/BlockLanding.webp"
 
 const BlocksCategory = () => {
     // making the search query thing 
@@ -19,9 +21,12 @@ const BlocksCategory = () => {
     return (
         <section className='w-full mt-10'>
             <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-16'>
+                <LandingPageUniversal mainHeading="Explore Tailwind CSS & React Blocks for Your Website" aboutHeading="Hero blocks play a pivotal role on your homepage by showcasing promotional content or key visuals that embody the essence of your product or service. They effectively create a compelling first impression, serving as impactful banners. Below, explore examples of Hero Blocks crafted using Tailwind CSS and React."
+                    landingImage={blockLandingImage}
+                />
                 <div className='mx-auto pt-28'>
-                    <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents Blocks</h1>
-                    <div className='flex justify-end mb-4 mr-3'>
+                    {/* <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents Blocks</h1> */}
+                    <div className='flex justify-center md:justify-start mb-4 mr-0 md:ml-3'>
                         <input
                             type="text"
                             placeholder='Search by category 🔍'

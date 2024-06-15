@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryComponent from './CategoryComponent';
 import categories from '../../public/categories';
+import LandingPageUniversal from '../components/LandingPageUniversal';
+import blockLandingImage from "../assets/BlockLanding.webp"
+
 
 
 const ComponentsCategory = () => {
@@ -19,9 +22,14 @@ const ComponentsCategory = () => {
     return (
         <section className='w-full mt-10'>
             <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-16'>
-                <div className='mx-auto pt-28'>
-                    <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents</h1>
-                    <div className='flex justify-end mb-4 mr-3'>
+                <LandingPageUniversal
+                    mainHeading="Discover Free Tailwind CSS & React Components"
+                    aboutHeading="Browse our collection of versatile components designed to enhance your website's functionality and design. Quickly integrate beautiful, responsive elements built with Tailwind CSS and React."
+                    landingImage={blockLandingImage}
+                />
+                <div className='mx-auto pt-20 md:pt-28'>
+                    {/* <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents</h1> */}
+                    <div className='flex justify-center md:justify-start mb-4 ml-0 md:ml-3'>
                         <input
                             type='text'
                             placeholder='Search by category 🔍'

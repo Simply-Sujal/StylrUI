@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import TopAdvertisment from './components/TopAdvertisment';
@@ -15,39 +15,45 @@ import BlocksCategory from './BlocksComponent/BlocksCategory';
 import BlockCodeSubmissionForm from './components/BlockCodeSubmissionForm';
 import Blockcodes from './BlocksComponent/Blockcodes';
 import ContributerPage from './components/ContributerPage';
+import { useAuth } from './store/Auth';
+
+const ProtectedRoute = ({ element: Component, ...rest }) => {
+  const { isTokenAvailable } = useAuth();
+  return isTokenAvailable ? <Component {...rest} /> : <Navigate to="/login" />;
+};
 
 const App = () => {
+  const { isTokenAvailable } = useAuth();
   return (
     <Router>
       <TopAdvertisment />
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
-        {/* <Route path='/components' element={<ComponentsPage />} /> */}
-        <Route path='/components' element={<ComponentsCategory />} />
-        <Route path='/components/:category' element={<ComponentDisplay />} />
-        <Route path='contributorpage' element={<ContributerPage />} />
-
-
-        {/* Here I am going to showcase the block components  */}
+        <Route path="/" element={<Home />} />
+        <Route path="/components" element={<ComponentsCategory />} />
+        <Route path="/components/:category" element={<ComponentDisplay />} />
+        <Route path="/contributorpage" element={<ContributerPage />} />
         <Route path="/blocks" element={<BlocksCategory />} />
         <Route path="/blocks/:category" element={<Blockcodes />} />
-
-
-        {/* User can submit code for any category for review making  */}
-        <Route path='/codesubmissionform' element={<CodeSubmissionForm />} />
-        <Route path='/blockSubmissionForm' element={<BlockCodeSubmissionForm />} />
-
-
-        {/* user authentication  */}
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/codesubmissionform" element={<CodeSubmissionForm />} />
+        <Route path="/blockSubmissionForm" element={<BlockCodeSubmissionForm />} />
+        <Route
+          path="/register"
+          element={isTokenAvailable ? <Navigate to="/" /> : <RegisterPage />}
+        />
+        <Route
+          path="/login"
+          element={isTokenAvailable ? <Navigate to="/" /> : <LoginPage />}
+        />
+        <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/profile"
+          element={<ProtectedRoute element={UserProfile} />}
+        />
       </Routes>
       <Footer />
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;

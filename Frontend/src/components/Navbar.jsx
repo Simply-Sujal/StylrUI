@@ -80,7 +80,7 @@ const NavBar = () => {
                         Contribute
                     </Link>
                     <Link
-                        to="/pricing-faq"
+                        to="/pricingfaq"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'pricing-faq' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
                         onClick={() => handleLinkClick('pricing-faq')}
                     >
@@ -152,7 +152,7 @@ const NavBar = () => {
                         Contribute
                     </Link>
                     <Link
-                        to="/pricing-faq"
+                        to="/pricingfaq"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'pricing-faq' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
                         onClick={() => handleLinkClick('pricing-faq')}
                     >

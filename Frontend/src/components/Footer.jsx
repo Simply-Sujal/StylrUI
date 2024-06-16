@@ -30,7 +30,7 @@ const Footer = () => {
                                         <Link to="/contributorpage" className="hover:underline">Contribute</Link>
                                     </li>
                                     <li className="mb-3">
-                                        <Link to="https://tailwindcss.com/" className="hover:underline">Pricing & FAQ</Link>
+                                        <Link to="/pricingfaq" className="hover:underline">Pricing & FAQ</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -38,10 +38,10 @@ const Footer = () => {
                                 <h2 className="mb-6 text-sm font-mulsih font-extrabold text-gray-900 uppercase dark:text-white">Company</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-roboto font-medium">
                                     <li className="mb-3">
-                                        <Link to="https://KK.com/" className="hover:underline">About Us</Link>
+                                        <Link to="/aboutus" className="hover:underline">About Us</Link>
                                     </li>
                                     <li className="mb-3">
-                                        <Link to="https://tailwindcss.com/" className="hover:underline">Github</Link>
+                                        <Link to="https://github.com/Simply-Sujal/kurated-komponents" className="hover:underline">Github</Link>
                                     </li>
                                 </ul>
                             </div>

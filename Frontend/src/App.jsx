@@ -17,6 +17,7 @@ import Blockcodes from './BlocksComponent/Blockcodes';
 import ContributerPage from './components/ContributerPage';
 import { useAuth } from './store/Auth';
 import About from './pages/About';
+import Pricingandfaq from './pages/Pricingandfaq';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   const { isTokenAvailable } = useAuth();
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/contributorpage" element={<ContributerPage />} />
 
         <Route path='/aboutus' element={<About />} />
+
+        <Route path='/pricingfaq' element={<Pricingandfaq />} />
 
         <Route path="/codesubmissionform" element={<CodeSubmissionForm />} />
         <Route path="/blockSubmissionForm" element={<BlockCodeSubmissionForm />} />

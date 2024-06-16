@@ -15,36 +15,41 @@ import BlocksCategory from './BlocksComponent/BlocksCategory';
 import BlockCodeSubmissionForm from './components/BlockCodeSubmissionForm';
 import Blockcodes from './BlocksComponent/Blockcodes';
 
+
 const App = () => {
   return (
-    <Router>
-      <TopAdvertisment />
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        {/* <Route path='/components' element={<ComponentsPage />} /> */}
-        <Route path='/components' element={<ComponentsCategory />} />
-        <Route path='/components/:category' element={<ComponentDisplay />} />
+    <>
+      
+        <Router>
+          <TopAdvertisment />
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            {/* <Route path='/components' element={<ComponentsPage />} /> */}
+            <Route path='/components' element={<ComponentsCategory />} />
+            <Route path='/components/:category' element={<ComponentDisplay />} />
 
 
-        {/* Here I am going to showcase the block components  */}
-        <Route path="/blocks" element={<BlocksCategory />} />
-        <Route path="/blocks/:category" element={<Blockcodes />} />
+            {/* Here I am going to showcase the block components  */}
+            <Route path="/blocks" element={<BlocksCategory />} />
+            <Route path="/blocks/:category" element={<Blockcodes />} />
 
 
-        {/* User can submit code for any category for review making  */}
-        <Route path='/codesubmissionform' element={<CodeSubmissionForm />} />
-        <Route path='/blockSubmissionForm' element={<BlockCodeSubmissionForm />} />
+            {/* User can submit code for any category for review making  */}
+            <Route path='/codesubmissionform' element={<CodeSubmissionForm />} />
+            <Route path='/blockSubmissionForm' element={<BlockCodeSubmissionForm />} />
 
 
-        {/* user authentication  */}
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route path="/profile" element={<UserProfile />} />
-      </Routes>
-      <Footer />
-    </Router>
+            {/* user authentication  */}
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path="/profile" element={<UserProfile />} />
+          </Routes>
+          <Footer />
+        </Router>
+      
+    </>
   )
 }
 

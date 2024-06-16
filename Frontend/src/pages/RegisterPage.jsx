@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/Auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ const RegisterPage = () => {
 
     const { storingTokenInLS } = useAuth();
     const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         setFormData({
@@ -25,6 +28,18 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation: Password should be at least 8 characters
+        if (formData.password.length < 8) {
+            toast.error("Password must be at least 8 characters long.");
+            return;
+        }
+
+        // Validation: Profile photo size should be less than 256kb
+        if (formData.image && formData.image.size > 256 * 1024) {
+            toast.error("Profile photo size should be less than 256kb.");
+            return;
+        }
 
         const data = new FormData();
         for (const key in formData) {
@@ -41,8 +56,7 @@ const RegisterPage = () => {
                 const result = await response.json();
                 console.log(result.token);
 
-                // stroing the token in the localstorage
-                // this will help us in identifying user whether he/she is admin or not
+                // storing the token in the localstorage
                 storingTokenInLS(result.token);
 
                 setFormData({
@@ -54,17 +68,22 @@ const RegisterPage = () => {
                     image: null,
                 })
                 navigate("/");
+                toast.success("Registration successful!");
+            } else {
+                toast.error("Registration failed. Please check your details.");
             }
 
             const result = await response.json();
             console.log(result);
         } catch (error) {
             console.error('Error:', error);
+            toast.error("Registration failed. Please try again.");
         }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
+            <ToastContainer/>
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Create an account</h2>
                 <p className='text-[17px] font-roboto font-semibold text-slate-600 mb-5'>Join our community of designers and developers to get access to hundreds of UI components, plugins, resources, and design systems.</p>

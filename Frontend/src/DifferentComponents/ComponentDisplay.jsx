@@ -5,7 +5,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaRegCopy, FaCopy, FaHeart, FaRegHeart } from "react-icons/fa";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ComponentDisplay = () => {
     const { category } = useParams();
@@ -37,11 +38,8 @@ const ComponentDisplay = () => {
         setTimeout(() => setCopiedId(null), 1500); // Reset copiedId after 1.5 seconds
     };
 
-
-    // get the token from local storage 
     const token = localStorage.getItem('token');
 
-    // now lets write for like and dislike api calling 
     const handleLike = async (id) => {
         try {
             const response = await axios.put(
@@ -54,30 +52,38 @@ const ComponentDisplay = () => {
                 }
             );
             setComponents(components.map(component => component._id === id ? response.data.updatedCode : component));
+            toast.success("Component liked successfully");
         } catch (error) {
-            console.log("Error liking the components", error)
+            console.log("Error liking the components", error);
+            toast.error("Failed to like component. Please try again later.");
         }
-    }
+    };
 
-    // dislike feature , api calling
     const handleUnlike = async (id) => {
         try {
-            const response = await axios.put('http://localhost:4000/api/v1/code/dislikecode',
+            const response = await axios.put(
+                'http://localhost:4000/api/v1/code/dislikecode',
                 { postId: id },
-                { headers: { Authorization: `Bearer ${token}` } }
-            )
-            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component))
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component));
+            toast.success("Component unliked successfully");
         } catch (error) {
-            console.log("Error unliking component")
+            console.log("Error unliking component", error);
+            toast.error("Failed to unlike component. Please try again later.");
         }
-    }
-
+    };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <section className='w-full pt-28'>
+            <ToastContainer/>
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <h1 className='text-5xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>

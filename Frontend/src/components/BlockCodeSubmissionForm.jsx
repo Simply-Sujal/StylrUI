@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-dracula'; // Import the chosen theme
+import 'ace-builds/src-noconflict/theme-dracula';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const categories = [
     "Landing Page",
@@ -32,11 +34,10 @@ const BlockCodeSubmissionForm = () => {
         code: '',
         category: '',
         blockImage: null
-    })
-
+    });
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target
+        const { name, value, files } = e.target;
         setFormData({
             ...formData,
             [name]: files ? files[0] : value
@@ -46,11 +47,16 @@ const BlockCodeSubmissionForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (formData.blockImage && formData.blockImage.size > 250 * 1024) {
+            toast.error("Image size should be less than 250kb.");
+            return;
+        }
+
         const data = new FormData();
-        data.append('title', formData.title)
-        data.append('code', formData.code)
-        data.append('category', formData.category)
-        data.append('blockImage', formData.blockImage)
+        data.append('title', formData.title);
+        data.append('code', formData.code);
+        data.append('category', formData.category);
+        data.append('blockImage', formData.blockImage);
 
         try {
             const token = localStorage.getItem('token');
@@ -60,7 +66,8 @@ const BlockCodeSubmissionForm = () => {
                     Authorization: `Bearer ${token}`,
                 },
                 body: data
-            })
+            });
+
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
@@ -71,18 +78,22 @@ const BlockCodeSubmissionForm = () => {
                     category: '',
                     blockImage: null,
                 });
-                alert("Code successfully submitted")
+
+                toast.success("Code successfully submitted");
             } else {
                 const errorResult = await response.json();
                 console.error('Error:', errorResult.message);
+                toast.error("Failed to submit code. Please check your details.");
             }
         } catch (error) {
             console.error('Error:', error);
+            toast.error("Failed to submit code. Please try again later.");
         }
-    }
+    };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
+            <ToastContainer/>
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Submit Your Code</h2>
                 <div className='mb-4'>

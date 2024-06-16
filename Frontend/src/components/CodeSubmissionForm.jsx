@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
-import 'ace-builds/src-noconflict/theme-dracula'; // Import the chosen theme
+import 'ace-builds/src-noconflict/theme-dracula';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const categories = [
     "Accordion", "Alert", "Artboard", "Avatar", "Badge", "Bottom navigation", "Breadcrumbs", "Button",
@@ -16,12 +18,23 @@ const CodeSubmissionForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         code: '',
-        category: '', // Updated state to include category
+        category: '',
         codeImage: null,
     });
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
+
+        if (name === 'codeImage' && files && files[0]) {
+            // Check if the image size exceeds 128 KB (128 * 1024 bytes)
+            if (files[0].size > 128 * 1024) {
+                toast.error("Image size exceeds 128 KB. Please choose a smaller image.");
+                // Clear the file input field
+                e.target.value = null;
+                return;
+            }
+        }
+
         setFormData({
             ...formData,
             [name]: files ? files[0] : value,
@@ -57,18 +70,22 @@ const CodeSubmissionForm = () => {
                     category: '',
                     codeImage: null,
                 });
-                alert("Code successfully submitted")
+
+                toast.success("Code successfully submitted");
             } else {
                 const errorResult = await response.json();
                 console.error('Error:', errorResult.message);
+                toast.error("Failed to submit code. Please check your details.");
             }
         } catch (error) {
             console.error('Error:', error);
+            toast.error("Failed to submit code. Please try again later.");
         }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
+            <ToastContainer/>
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Submit Your Code</h2>
                 <div className="mb-4">

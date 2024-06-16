@@ -43,7 +43,7 @@ const OurSpeciality = () => {
                             Fully coded pre build section allows you to start building website in second.
                         </p>
 
-                        <Link to="/">
+                        <Link to="/components" onClick={() => window.scrollTo({ top: 0 })}>
                             <button className={`px-8 py-3 font-bold rounded-md hover:shadow-xl bg-slate-800 text-white mt-8 md:mt-36`}>
                                 Explore
                             </button>

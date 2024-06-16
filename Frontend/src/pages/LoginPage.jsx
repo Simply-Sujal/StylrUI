@@ -37,6 +37,7 @@ const LoginPage = () => {
                     email: '',
                     password: '',
                 });
+                window.scrollTo({ top: 0 });
                 navigate("/");
                 await userAuthentication(); // Fetch user data immediately after storing the token
             }

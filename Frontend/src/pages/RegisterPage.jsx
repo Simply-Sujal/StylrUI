@@ -53,6 +53,7 @@ const RegisterPage = () => {
                     password: '',
                     image: null,
                 })
+                window.scrollTo({ top: 0 });
                 navigate("/");
             }
 

@@ -3,6 +3,9 @@ import CreativeDesign from "../assets/CreativeDesign.webp"
 import { Link } from "react-router-dom"
 
 const FeatureThird = () => {
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0 });
+    }
     return (
         <section className='w-full flex flex-col md:flex-row items-start border border-gray-300 rounded-xl'>
             <main className='md:w-1/2 p-6 font-roboto rounded-lg'>
@@ -12,7 +15,7 @@ const FeatureThird = () => {
                     Our website features a modern, clean UI with well-designed components that enhance user experience. Each component is designed to maintain a consistent look and feel, providing a cohesive user experience across the website.
                 </p>
 
-                <Link to="/">
+                <Link to="/blocks" onClick={scrollToTop}>
                     <button className={`px-8 py-3 font-bold rounded-md hover:shadow-xl bg-slate-800 text-white mt-8 md:mt-36`}>
                         Explore
                     </button>

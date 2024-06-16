@@ -32,12 +32,16 @@ const NavBar = () => {
         setActiveLink(link);
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0 });
+    };
+
     return (
         <nav className="bg-white fixed w-full top-14 z-50 shadow-sm">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 {/* Left: Logo */}
                 <div className="flex items-center space-x-4 md:ml-10">
-                    <Link to="/" onClick={() => handleLinkClick(null)}>
+                    <Link to="/" onClick={scrollToTop}>
                         <img className="h-8 w-8 md:h-24 md:w-24 cursor-pointer" src={websiteLogo} alt="Logo" />
                     </Link>
                     {/* <div className="hidden md:block relative">
@@ -52,37 +56,53 @@ const NavBar = () => {
                 {/* Center: Navigation Links */}
                 <div className="hidden md:flex space-x-6 text-[16px] font-roboto font-medium">
                     <Link
+                        to="/docs"
+                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'docs' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
+                        onClick={() => {
+                            handleLinkClick('docs');
+                            scrollToTop();
+                        }}
+                    >
+                        Docs
+                    </Link>
+                    <Link
                         to="/components"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'components' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('components')}
+                        onClick={() => {
+                            handleLinkClick('components');
+                            scrollToTop();
+                        }}
                     >
                         Components
                     </Link>
                     <Link
                         to="/blocks"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blocks' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('blocks')}
+                        onClick={() => {
+                            handleLinkClick('blocks');
+                            scrollToTop();
+                        }}
                     >
                         Blocks
                     </Link>
-                    <Link
-                        to="/figmaa"
-                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'figmaa' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('figmaa')}
-                    >
-                        Figmaa
-                    </Link>
+
                     <Link
                         to="/contributorpage"
-                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blog' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('blog')}
+                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'contribute' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
+                        onClick={() => {
+                            handleLinkClick('contribute');
+                            scrollToTop();
+                        }}
                     >
                         Contribute
                     </Link>
                     <Link
                         to="/pricingfaq"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'pricing-faq' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('pricing-faq')}
+                        onClick={() => {
+                            handleLinkClick('pricing-faq');
+                            scrollToTop();
+                        }}
                     >
                         Pricing & FAQ
                     </Link>
@@ -95,11 +115,11 @@ const NavBar = () => {
                     </a>
 
                     {isTokenAvailable ? (
-                        <Link to="/profile">
+                        <Link to="/profile" onClick={scrollToTop}>
                             <img src={userImage} alt="User profile image" className='rounded-full h-10 w-10' />
                         </Link>
                     ) : (
-                        <Link to="/login" className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
+                        <Link to="/login" onClick={scrollToTop} className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
                             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
                             <span className="relative">Sign In</span>
                             <IoIosArrowRoundForward className='text-[30px] pt-[3px]' />
@@ -126,35 +146,50 @@ const NavBar = () => {
                     <Link
                         to="/components"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'components' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('components')}
+                        onClick={() => {
+                            handleLinkClick('components');
+                            scrollToTop();
+                        }}
                     >
                         Components
                     </Link>
                     <Link
                         to="/blocks"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blocks' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('blocks')}
+                        onClick={() => {
+                            handleLinkClick('blocks');
+                            scrollToTop();
+                        }}
                     >
                         Blocks
                     </Link>
                     <Link
                         to="/figmaa"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'figmaa' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('figmaa')}
+                        onClick={() => {
+                            handleLinkClick('figmaa');
+                            scrollToTop();
+                        }}
                     >
                         Figmaa
                     </Link>
                     <Link
                         to="/contributorpage"
-                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'blog' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('blog')}
+                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'contribute' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
+                        onClick={() => {
+                            handleLinkClick('contribute');
+                            scrollToTop();
+                        }}
                     >
                         Contribute
                     </Link>
                     <Link
                         to="/pricingfaq"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'pricing-faq' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => handleLinkClick('pricing-faq')}
+                        onClick={() => {
+                            handleLinkClick('pricing-faq');
+                            scrollToTop();
+                        }}
                     >
                         Pricing & FAQ
                     </Link>

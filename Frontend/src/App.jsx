@@ -16,6 +16,7 @@ import BlockCodeSubmissionForm from './components/BlockCodeSubmissionForm';
 import Blockcodes from './BlocksComponent/Blockcodes';
 import ContributerPage from './components/ContributerPage';
 import { useAuth } from './store/Auth';
+import About from './pages/About';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   const { isTokenAvailable } = useAuth();
@@ -32,11 +33,19 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/components" element={<ComponentsCategory />} />
         <Route path="/components/:category" element={<ComponentDisplay />} />
-        <Route path="/contributorpage" element={<ContributerPage />} />
+
+
         <Route path="/blocks" element={<BlocksCategory />} />
         <Route path="/blocks/:category" element={<Blockcodes />} />
+
+        <Route path="/contributorpage" element={<ContributerPage />} />
+
+        <Route path='/aboutus' element={<About />} />
+
         <Route path="/codesubmissionform" element={<CodeSubmissionForm />} />
         <Route path="/blockSubmissionForm" element={<BlockCodeSubmissionForm />} />
+
+
         <Route
           path="/register"
           element={isTokenAvailable ? <Navigate to="/" /> : <RegisterPage />}

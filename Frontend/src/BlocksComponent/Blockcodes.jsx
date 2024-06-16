@@ -33,7 +33,7 @@ const Blockcodes = () => {
     }
 
     // Get the token from local storage
-    const token = localStorage.getItem('token'); // Adjust this according to your token storage method
+    const token = localStorage.getItem('token');
 
     // Handling like and unlike functionality
     const handleLike = async (id) => {

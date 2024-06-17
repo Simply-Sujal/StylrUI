@@ -124,7 +124,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block text-gray-700 font-roboto font-bold">Profile Image (Less than 250kb size)</label>
+                    <label className="block text-gray-700 font-roboto font-bold">Profile Image (Less than 1mb size)</label>
                     <input
                         type="file"
                         name="image"

@@ -49,7 +49,7 @@ const CodeSubmissionForm = () => {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log(result);
+                // console.log(result);
 
                 setFormData({
                     title: '',
@@ -124,11 +124,10 @@ const CodeSubmissionForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Code Image (WebP format, max 128kb)</label>
+                    <label className="block text-gray-700 font-roboto font-bold">Output Image (max 1mb)</label>
                     <input
                         type="file"
                         name="codeImage"
-                        accept=".webp"
                         onChange={handleChange}
                         className="mt-1 p-2 w-full border rounded font-roboto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
                     />

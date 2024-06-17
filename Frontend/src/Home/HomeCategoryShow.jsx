@@ -8,7 +8,7 @@ const HomeCategoryShow = () => {
     const navigate = useNavigate();
 
     // Take the first 28 categories from the list
-    const showcasedCategories = categories.slice(0, 28);
+    const showcasedCategories = categories.slice(0, 20);
 
     const handleCategoryClick = (categoryName) => {
         navigate(`/components/${categoryName}`);
@@ -31,6 +31,7 @@ const HomeCategoryShow = () => {
                                     className='block w-full'
                                 >
                                     <CategoryComponent
+                                        componentImage={category.image}
                                         componentHeading={category.category}
                                     />
                                 </button>

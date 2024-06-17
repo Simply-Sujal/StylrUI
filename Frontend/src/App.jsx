@@ -19,6 +19,8 @@ import { useAuth } from './store/Auth';
 import About from './pages/About';
 import Pricingandfaq from './pages/Pricingandfaq';
 import DocsPage from './Docs/DocsPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Termsandcondition from './pages/Termsandcondition';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   const { isTokenAvailable } = useAuth();
@@ -51,6 +53,8 @@ const App = () => {
         <Route path="/codesubmissionform" element={<CodeSubmissionForm />} />
         <Route path="/blockSubmissionForm" element={<BlockCodeSubmissionForm />} />
 
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsandcondtion" element={<Termsandcondition />} />
 
         <Route
           path="/register"

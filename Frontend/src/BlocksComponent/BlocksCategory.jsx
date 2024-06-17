@@ -46,6 +46,7 @@ const BlocksCategory = () => {
                                         className='block w-full'
                                     >
                                         <Blockview
+                                            componentImage={category.image}
                                             blockHeading={category.category}
                                             aboutComponent={category.description}
                                         />

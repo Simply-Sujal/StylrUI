@@ -47,7 +47,7 @@ const ComponentsCategory = () => {
                                     className='block w-full'
                                 >
                                     <CategoryComponent
-                                        // componentImage={category.image}
+                                        componentImage={category.image}
                                         componentHeading={category.category}
                                         aboutComponent={category.description}
                                     />

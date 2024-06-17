@@ -22,7 +22,7 @@ const Footer = () => {
                                 <h2 className="mb-6 text-sm font-mulsih font-extrabold text-gray-900 uppercase dark:text-white">Resources</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-roboto font-medium">
                                     <li className="mb-3">
-                                        <Link to="/" className="hover:underline" onClick={scrollToTop}>Docs</Link>
+                                        <Link to="/docs" className="hover:underline" onClick={scrollToTop}>Docs</Link>
                                     </li>
                                     <li className="mb-3">
                                         <Link to="/components" className="hover:underline" onClick={scrollToTop}>Components</Link>

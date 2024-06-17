@@ -143,6 +143,17 @@ const NavBar = () => {
                             placeholder="Search..."
                         />
                     </div>
+
+                    <Link
+                        to="/docs"
+                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'docs' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
+                        onClick={() => {
+                            handleLinkClick('docs');
+                            scrollToTop();
+                        }}
+                    >
+                        Docs
+                    </Link>
                     <Link
                         to="/components"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'components' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
@@ -163,16 +174,7 @@ const NavBar = () => {
                     >
                         Blocks
                     </Link>
-                    <Link
-                        to="/figmaa"
-                        className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'figmaa' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}
-                        onClick={() => {
-                            handleLinkClick('figmaa');
-                            scrollToTop();
-                        }}
-                    >
-                        Figmaa
-                    </Link>
+
                     <Link
                         to="/contributorpage"
                         className={`text-gray-800 hover:text-[#FF7D29] transition-all duration-200 ${activeLink === 'contribute' ? 'bg-orange-100 text-orange-500 rounded-md px-2' : ''}`}

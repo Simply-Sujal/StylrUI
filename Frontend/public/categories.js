@@ -2,22 +2,22 @@ const categories = [
     {
         "category": "Accordion",
         "description": "Accordion is used for showing and hiding content but only one item can stay open at a time.",
-        "image": "accordion.png"
+        "image": "../src/assets/radial.jpg"
     },
     {
         "category": "Alert",
         "description": "Alert informs users about important events.",
-        "image": "alert.png"
+        "image": "../src/assets/star.jpg"
     },
     {
         "category": "Artboard",
         "description": "Artboard provides fixed size container to display a demo content on mobile size.",
-        "image": "artboard.png"
+        "image": "../src/assets/radial.jpg"
     },
     {
         "category": "Avatar",
         "description": "Avatars are used to show a thumbnail representation of an individual or business in the interface.",
-        "image": "avatar.png"
+        "image": "https://drive.google.com/file/d/1YGJAa6rlTBfhlGKn-alifrcz9Wr6C0a6/view?usp=sharing"
     },
     {
         "category": "Badge",
@@ -32,17 +32,17 @@ const categories = [
     {
         "category": "Breadcrumbs",
         "description": "Breadcrumbs helps users to navigate through the website.",
-        "image": "breadcrumbs.png"
+        "image": "https://drive.google.com/file/d/1I-wraJTTrPRgKdQojrcPBGBzT_5795cc/view?usp=drive_link"
     },
     {
         "category": "Button",
         "description": "Buttons allow the user to take actions or make choices.",
-        "image": "button.png"
+        "image": "https://drive.google.com/file/d/1vQpvOa0HzogLPPA7pzlGxYs8NmsaG9zM/view?usp=drive_link"
     },
     {
         "category": "Card",
         "description": "Cards are used to group and display content in a way that is easily readable.",
-        "image": "card.png"
+        "image": "https://drive.google.com/file/d/1jh6rY_Pw_dRfqnbMFWXbOTS-TF93CU2b/view?usp=drive_link"
     },
     {
         "category": "Carousel",
@@ -167,12 +167,12 @@ const categories = [
     {
         "category": "Navbar",
         "description": "Navbar is used to show a navigation bar on the top of the page.",
-        "image": "navbar.png"
+        "image": "https://drive.google.com/file/d/1zvFEtPgMrOdJ0vhIu9ztJFKW0QrId2fr/view?usp=drive_link"
     },
     {
         "category": "Pagination",
         "description": "Pagination is a group of buttons that allow the user to navigate between a set of related content.",
-        "image": "pagination.png"
+        "image": "https://drive.google.com/file/d/1YGJAa6rlTBfhlGKn-alifrcz9Wr6C0a6/view?usp=drive_link"
     },
     {
         "category": "Progress",
@@ -182,7 +182,7 @@ const categories = [
     {
         "category": "Radial progress",
         "description": "Radial progress can be used to show the progress of a task or to show the passing of time.",
-        "image": "radial_progress.png"
+        "image": "https://drive.google.com/file/d/1o-tZCXZtgU_nsotkcikl2n6MF6ifFbav/view?usp=drive_link"
     },
     {
         "category": "Radio",
@@ -197,7 +197,7 @@ const categories = [
     {
         "category": "Rating",
         "description": "Rating is a set of radio buttons that allow the user to rate something.",
-        "image": "rating.png"
+        "image": "https://drive.google.com/file/d/1J_lj2JW-98Do65_c1nGwJ8xeWbPxq058/view?usp=drive_link"
     },
     {
         "category": "Select",
@@ -207,7 +207,7 @@ const categories = [
     {
         "category": "Skeleton",
         "description": "Skeleton is a category that can be used to show a loading state of a category.",
-        "image": "skeleton.png"
+        "image": "https://drive.google.com/file/d/1DFd_S1RlKesojNd4ySB3FXOhU9Vkrkvt/view?usp=drive_link"
     },
     {
         "category": "Stack",
@@ -257,7 +257,7 @@ const categories = [
     {
         "category": "Toast",
         "description": "Toast is a wrapper to stack elements, positioned on the corner of page.",
-        "image": "toast.png"
+        "image": "https://drive.google.com/file/d/1NTEvakeuuQeKkwqcKAZ_zQmTF7ku1XC2/view?usp=drive_link"
     },
     {
         "category": "Toggle",
@@ -267,7 +267,7 @@ const categories = [
     {
         "category": "Tooltip",
         "description": "Tooltip can be used to show a message when hovering over an element.",
-        "image": "tooltip.png"
+        "image": "https://drive.google.com/file/d/1bdoLhG7x6U5DC9rVrSlpXyV8mFCbWrYM/view?usp=drive_link"
     }
 ]
 

@@ -18,6 +18,7 @@ import ContributerPage from './components/ContributerPage';
 import { useAuth } from './store/Auth';
 import About from './pages/About';
 import Pricingandfaq from './pages/Pricingandfaq';
+import DocsPage from './Docs/DocsPage';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   const { isTokenAvailable } = useAuth();
@@ -32,6 +33,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/docs" element={<DocsPage />} />
+
         <Route path="/components" element={<ComponentsCategory />} />
         <Route path="/components/:category" element={<ComponentDisplay />} />
 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -63,8 +64,14 @@ const Footer = () => {
                         </div>
                     </div>
                     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <div className="sm:flex sm:items-center sm:justify-between">
-                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link to="/" className="hover:underline" onClick={scrollToTop}>StylrUI</Link>. All Rights Reserved.</span>
+                    <div className='flex flex-row-reverse justify-between'>
+                        <div className="sm:flex sm:items-center sm:justify-between">
+                            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link to="/" className="hover:underline" onClick={scrollToTop}>StylrUI</Link>. All Rights Reserved.</span>
+                        </div>
+                        <div className="flex justify-end">
+                            <img src="https://media.licdn.com/dms/image/D5603AQFhDyJuC9ltwQ/profile-displayphoto-shrink_400_400/0/1695723981257?e=1724284800&v=beta&t=j2-JbZV8ioTiySXgoCw0NP3e-sVCSQ5p-DGY3vdVXOQ" className="h-16 w-16 rounded-full" alt="Creator's Profile Picture" />
+                            <span className="ml-2 text-xl font-bold font-roboto">Built by <br></br><a href="https://www.linkedin.com/in/sujal-timilsina-a26299197/" target="_blank" rel="noopener noreferrer" className='text-orange-500 hover:border-b-2'>Sujal Timilsina</a></span>
+                        </div>
                     </div>
                 </div>
             </footer>

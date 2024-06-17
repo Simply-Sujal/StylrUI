@@ -21,12 +21,13 @@ const uploadCodeImage = multer({
         }
     }),
     fileFilter: function (req, file, cb) {
-        if (file.mimetype !== 'image/webp') {
-            return cb(new Error('Only .webp format allowed!'), false);
+        const allowedMimeTypes = ['image/webp', 'image/jpeg', 'image/png'];
+        if (!allowedMimeTypes.includes(file.mimetype)) {
+            return cb(new Error('Only .webp, .jpg, .png formats allowed!'), false);
         }
         cb(null, true);
     },
-    limits: { fileSize: 250 * 1024 } // 250 KB size limit
+    limits: { fileSize: 1048576 }, // 1 MB size limit
 });
 
 export default uploadCodeImage;

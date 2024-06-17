@@ -29,7 +29,7 @@ const registerUser = async (req, res) => {
         if (!req.file) {
             return res.status(400).json({
                 success: false,
-                message: 'Image is required and should be less than 250KB'
+                message: 'Image is required and should be less than 1mb'
             });
         }
 

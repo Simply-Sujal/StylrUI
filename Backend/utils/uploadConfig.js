@@ -27,7 +27,7 @@ const upload = multer({
         }
         cb(null, true);
     },
-    limits: { fileSize: 250 * 1024 } // 250 KB size limit
+    limits: { fileSize: 1048576 } // 250 KB size limit
 });
 
 export default upload;

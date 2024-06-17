@@ -14,7 +14,7 @@ const postBlockCode = async (req, res) => {
         }
 
         if (!req.file) {
-            return res.status(400).json({ error: 'Block image is required and should be in .webp format' });
+            return res.status(400).json({ error: 'Block image is required and should be in under 1mb' });
         }
 
 
@@ -53,8 +53,13 @@ const postBlockCode = async (req, res) => {
             from: process.env.USER_EMAIL,
             to: req.user.email,
             subject: 'Thank you for sharing your code!',
-            text: 'Thank you for sharing your code! We will review it soon.',
-            html: '<p>Thank you for sharing your code! We will review it soon.</p>'
+            text: "You're one step closer to sharing your code with the world! We'll review it soon and get back to you.",
+            html: `
+              <p>Dear ${req.user.name},</p>
+              <p>Thank you for sharing your code with us! We're excited to review it and get back to you soon.</p>
+              <p>Best regards,</p>
+              <p>Your Code Review Team</p>
+            `,
         };
 
         transporter.sendMail(mailOptions, (err, info) => {

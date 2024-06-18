@@ -84,7 +84,7 @@ const ComponentDisplay = () => {
                     {components.map(component => (
                         <div key={component._id} className='border p-4 rounded bg-gray-800 text-white'>
                             <h3 className='text-[18px] md:text-2xl font-mulsih font-bold mb-2'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
-                            {component.codeImage && <img src={component.codeImage} alt={component.title} className='w-full h-32 object-cover mb-4' />}
+                            {component.codeImage && <img src={component.codeImage} alt={component.title} className='w-full h-64 object-contain mb-4' />}
 
                             <div className='relative'>
                                 <SyntaxHighlighter language="javascript" style={okaidia} showLineNumbers>

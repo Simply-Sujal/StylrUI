@@ -2,6 +2,10 @@ import React from 'react'
 import Topic from '../components/Topic'
 import Speciality from '../components/Speciality'
 import { Link } from 'react-router-dom'
+import tailwindImage from "../assets/tailwind.jpg"
+import nextImage from "../assets/nextjs.jpg"
+import prebuiltImage from "../assets/prebuilt.jpg"
+import figmaaImage from "../assets/figmaa.jpg"
 
 
 
@@ -16,21 +20,24 @@ const OurSpeciality = () => {
                         aboutHeading="Elevate your web development process with our curated collection of premium Tailwind CSS components."
                     />
                 </div>
-                <div className='flex flex-col md:flex-row gap-4 mt-20'>
+                <div className='grid md:grid-cols-3 grid-cols-1 gap-4 mt-20'>
                     <Speciality
                         smallHeading="50+"
                         mainHeading="Tailwind CSS Components"
                         aboutHeading="A vast array of components to build websites with lightning speed."
+                        topicImage={tailwindImage}
                     />
                     <Speciality
                         smallHeading="30+"
-                        mainHeading="Figma Designs"
+                        mainHeading="Figma Designs (coming soon)"
                         aboutHeading="Beautiful Figma designs to streamline your creative process."
+                        topicImage={figmaaImage}
                     />
                     <Speciality
                         smallHeading="3"
                         mainHeading="Popular Technologies"
-                        aboutHeading="Optimized for React, Next, and HTML developers."
+                        aboutHeading="Optimized for React, Next, and Tailwind developers."
+                        topicImage={nextImage}
                     />
 
                 </div>
@@ -51,7 +58,7 @@ const OurSpeciality = () => {
 
                     </main>
                     <div className=' p-6 flex justify-center w-full'>
-                        <img src="https://www.material-tailwind.com/_next/image?url=%2Fimage%2Fready-made-sections.png&w=1080&q=75" alt="Creative Design" className='w-full h-auto md:h-[350px]' />
+                        <img src={prebuiltImage} alt="Creative Design" className='w-full h-auto md:h-[350px]' />
                     </div>
                 </section>
             </main>

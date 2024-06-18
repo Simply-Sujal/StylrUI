@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-dracula'; // Import the chosen theme
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const categories = [
     "Accordion", "Alert", "Artboard", "Avatar", "Badge", "Bottom navigation", "Breadcrumbs", "Button",
@@ -57,10 +59,11 @@ const CodeSubmissionForm = () => {
                     category: '',
                     codeImage: null,
                 });
-                alert("Code successfully submitted")
+                toast.success("Code successfully submitted")
             } else {
                 const errorResult = await response.json();
-                console.error('Error:', errorResult.message);
+                // console.error('Error:', errorResult.message);
+                toast.error("Failed to submit form")
             }
         } catch (error) {
             console.error('Error:', error);
@@ -69,6 +72,7 @@ const CodeSubmissionForm = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
+            <ToastContainer />
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Submit Your Components Code</h2>
                 <div className="mb-4">

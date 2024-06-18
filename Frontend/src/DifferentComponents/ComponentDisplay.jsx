@@ -83,7 +83,7 @@ const ComponentDisplay = () => {
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>
                     {components.map(component => (
                         <div key={component._id} className='border p-4 rounded bg-gray-800 text-white'>
-                            <h3 className='text-[18px] md:text-2xl font-mulsih font-bold mb-2'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
+                            <h3 className='text-[18px] md:text-2xl font-mulsih font-bold mb-2 text-blue-500'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
                             {component.codeImage && <img src={component.codeImage} alt={component.title} className='w-full h-64 object-contain mb-4' />}
 
                             <div className='relative'>

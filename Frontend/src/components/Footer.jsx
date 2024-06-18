@@ -70,7 +70,7 @@ const Footer = () => {
                         </div>
                         <div className="flex justify-end">
                             <img src="https://media.licdn.com/dms/image/D5603AQFhDyJuC9ltwQ/profile-displayphoto-shrink_400_400/0/1695723981257?e=1724284800&v=beta&t=j2-JbZV8ioTiySXgoCw0NP3e-sVCSQ5p-DGY3vdVXOQ" className="h-16 w-16 rounded-full" alt="Creator's Profile Picture" />
-                            <span className="ml-2 text-sm font-bold font-roboto text-slate-500 mt-2">Created by <br></br><a href="https://www.linkedin.com/in/sujal-timilsina-a26299197/" target="_blank" rel="noopener noreferrer" className='text-slate-800 hover:border-b-2 text-xl text-center'>Sujal Timilsina</a></span>
+                            <span className="ml-2 text-sm font-bold font-roboto text-slate-500 mt-0 md:mt-2">Created by <br></br><a href="https://www.linkedin.com/in/sujal-timilsina-a26299197/" target="_blank" rel="noopener noreferrer" className='text-slate-800 hover:border-b-2 text-xl text-center'>Sujal Timilsina</a></span>
                         </div>
                     </div>
                 </div>

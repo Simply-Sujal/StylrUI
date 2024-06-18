@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/Auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -55,10 +59,13 @@ const RegisterPage = () => {
                 })
                 window.scrollTo({ top: 0 });
                 navigate("/");
+                toast.success("Logged out successfully");
+            } else {
+                toast.error("Failed user registration");
             }
 
-            const result = await response.json();
-            console.log(result);
+            // const result = await response.json();
+            // console.log(result);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -66,6 +73,7 @@ const RegisterPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[110px] md:pt-[135px]">
+            <ToastContainer />
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Create an account</h2>
                 <p className='text-[17px] font-roboto font-semibold text-slate-600 mb-5'>Join our community of designers and developers to get access to hundreds of UI components, plugins, resources, and design systems.</p>

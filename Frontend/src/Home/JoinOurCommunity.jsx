@@ -24,7 +24,7 @@ const JoinOurCommunity = () => {
                         aboutHeading="Get a chance of collaborating and exchanging knowledge among each other."
                         buttonText="Join"
                         socialBackground="bg-green-200"
-                        socialLink="/"
+                        socialLink="https://chat.whatsapp.com/IITtZIPxUBC6UgaD2WP5ZW"
                     />
                     <OurSocials
                         socialsImage={github}
@@ -32,7 +32,7 @@ const JoinOurCommunity = () => {
                         aboutHeading="Get it free on Github and please help us spread the news with a Star."
                         buttonText="Visit"
                         socialBackground="bg-slate-200"
-                        socialLink="/"
+                        socialLink="https://github.com/Simply-Sujal/"
                     />
 
                     <OurSocials
@@ -41,7 +41,7 @@ const JoinOurCommunity = () => {
                         aboutHeading="For announcements, articles, and other valuable resources."
                         buttonText="Join"
                         socialBackground="bg-blue-200"
-                        socialLink="/"
+                        socialLink="https://twitter.com/362Sujal"
                     />
                 </div>
             </main>

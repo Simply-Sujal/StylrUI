@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/Auth';
+import { toast, ToastContainer } from 'react-toastify';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
+    const [showPassword, setShowPassword] = useState(false);
 
     const { storingTokenInLS, userAuthentication } = useAuth();
     const navigate = useNavigate();
@@ -30,8 +34,8 @@ const LoginPage = () => {
                 body: JSON.stringify(formData)
             });
             if (response.ok) {
+                toast.success("Login Successful");
                 const result = await response.json();
-                console.log(result);
                 await storingTokenInLS(result.token);
                 setFormData({
                     email: '',
@@ -40,14 +44,22 @@ const LoginPage = () => {
                 window.scrollTo({ top: 0 });
                 navigate("/");
                 await userAuthentication(); // Fetch user data immediately after storing the token
+            } else {
+                const error = await response.json();
+                toast.error(error.message || "Login failed. Please try again.");
             }
         } catch (error) {
-            console.log(error);
+            toast.error("Problem while logging in!");
         }
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white pt-[100px] md:pt-[120px]">
+            <ToastContainer />
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm md:shadow-lg w-full max-w-[650px]">
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Sign in to your account</h2>
                 <p className='text-[17px] font-roboto font-semibold text-slate-600 mb-5'>Join our community of designers and developers to get access to hundreds of UI components, plugins, resources, and design systems.</p>
@@ -59,18 +71,21 @@ const LoginPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder='name@company.com'
-                        className="mt-1 p-2 w-full border rounded font-robto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
+                        className="mt-1 p-2 w-full border rounded font-roboto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 relative">
                     <label className="block text-gray-700 font-roboto font-bold">Password</label>
                     <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
-                        className="mt-1 p-2 w-full border rounded font-robto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
+                        className="mt-1 p-2 w-full border rounded font-roboto font-semibold bg-[#f7fbff] placeholder-opacity-75 md:placeholder-opacity-50 placeholder-gray-800 placeholder:font-bold"
                     />
+                    <button type="button" onClick={togglePasswordVisibility} className="absolute inset-y-0 right-0 top-6 pr-3 flex items-center text-[23px] leading-5">
+                        {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                    </button>
                 </div>
 
                 <button type="submit">

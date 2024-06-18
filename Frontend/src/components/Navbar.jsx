@@ -135,14 +135,7 @@ const NavBar = () => {
             {/* Mobile Menu */}
             <div className={`fixed inset-0 z-40 bg-black bg-opacity-50 ${isOpen ? 'block' : 'hidden'}`} onClick={toggleMenu}></div>
             <div className={`fixed top-0 left-0 w-64 bg-white h-full z-50 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
-                <div className="flex flex-col items-start p-4 space-y-4">
-                    <div className="relative w-full">
-                        <input
-                            type="text"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100"
-                            placeholder="Search..."
-                        />
-                    </div>
+                <div className="flex flex-col items-start p-4 space-y-4 text-xl font-mulsih font-semibold bg-orange-100 h-screen">
 
                     <Link
                         to="/docs"

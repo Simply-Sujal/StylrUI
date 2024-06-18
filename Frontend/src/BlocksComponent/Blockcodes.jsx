@@ -65,11 +65,11 @@ const Blockcodes = () => {
     return (
         <section className='w-full pt-28'>
             <main className='px-4 md:px-20 pt-10 md:pt-14 pb-16 md:pb-20'>
-                <h1 className='text-3xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+                <h1 className='text-4xl md:text-5xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                 <div className='grid grid-cols-1 gap-6'>
                     {blockData.map(block => (
                         <div key={block._id} className='relative border rounded shadow border-b-2'>
-                            <h1 className='text-[18px] md:text-2xl font-mulsih font-bold text-center md:text-start ml-4 mt-2'>{block.title}</h1>
+                            <h1 className='text-[18px] md:text-2xl font-mulsih font-extrabold text-blue-500 text-center md:text-start ml-4 mt-2'>{block.title}</h1>
                             <div className='flex justify-center md:justify-end gap-4 border-b-2 border-gray-100 mb-2 py-2 mr-2'>
                                 <button
                                     className={`flex items-center gap-1 md:gap-2 text-xs md:text-sm font-mukta font-normal px-2 py-1 md:px-3 md:py-[8px] rounded-md ${viewImage ? 'bg-green-200 text-slate-900' : 'bg-gray-400 text-white'}`}

@@ -17,7 +17,7 @@ const Blockcodes = () => {
     useEffect(() => {
         const fetchBlockData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/v1/block/category/${category}`);
+                const response = await axios.get(`https://stylr-ui-backend.vercel.app/api/v1/block/category/${category}`);
                 setBlockData(response.data.blockCodes);
             } catch (error) {
                 console.log("Error fetching blocksData", error);
@@ -39,7 +39,7 @@ const Blockcodes = () => {
     const handleLike = async (id) => {
         try {
             const response = await axios.put(
-                'http://localhost:4000/api/v1/block/likecode',
+                'https://stylr-ui-backend.vercel.app/api/v1/block/likecode',
                 { postId: id },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -52,7 +52,7 @@ const Blockcodes = () => {
     const handleUnlike = async (id) => {
         try {
             const response = await axios.put(
-                'http://localhost:4000/api/v1/block/dislikecode',
+                'https://stylr-ui-backend.vercel.app/api/v1/block/dislikecode',
                 { postId: id },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

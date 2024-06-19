@@ -56,7 +56,7 @@ const BlockCodeSubmissionForm = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:4000/api/v1/block/blockcodesubmission`, {
+            const response = await fetch(`https://stylr-ui-backend.vercel.app/api/v1/block/blockcodesubmission`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

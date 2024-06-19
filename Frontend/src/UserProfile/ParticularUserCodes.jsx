@@ -15,7 +15,7 @@ const ParticularUserCodes = () => {
         const fetchAcceptedCodes = async () => {
             try {
                 const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
-                const response = await axios.get('http://localhost:4000/api/v1/block/acceptedcodes', {
+                const response = await axios.get('https://stylr-ui-backend.vercel.app/api/v1/block/acceptedcodes', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     },

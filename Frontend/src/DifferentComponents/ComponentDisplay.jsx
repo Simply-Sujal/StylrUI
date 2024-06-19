@@ -19,7 +19,7 @@ const ComponentDisplay = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get(`http://localhost:4000/api/v1/code/category/${category}`);
+                const response = await axios.get(`https://stylr-ui-backend.vercel.app/api/v1/code/category/${category}`);
                 setComponents(response.data.codes);
             } catch (error) {
                 setError('Error fetching components');
@@ -45,7 +45,7 @@ const ComponentDisplay = () => {
     const handleLike = async (id) => {
         try {
             const response = await axios.put(
-                'http://localhost:4000/api/v1/code/likecode',
+                'https://stylr-ui-backend.vercel.app/api/v1/code/likecode',
                 { postId: id },
                 {
                     headers: {
@@ -62,7 +62,7 @@ const ComponentDisplay = () => {
     // dislike feature , api calling
     const handleUnlike = async (id) => {
         try {
-            const response = await axios.put('http://localhost:4000/api/v1/code/dislikecode',
+            const response = await axios.put('https://stylr-ui-backend.vercel.app/api/v1/code/dislikecode',
                 { postId: id },
                 { headers: { Authorization: `Bearer ${token}` } }
             )

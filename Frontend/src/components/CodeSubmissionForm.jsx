@@ -41,7 +41,7 @@ const CodeSubmissionForm = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:4000/api/v1/code/codesubmission', {
+            const response = await fetch('https://stylr-ui-backend.vercel.app/api/v1/code/codesubmission', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

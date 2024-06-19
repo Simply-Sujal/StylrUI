@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     const userAuthentication = async () => {
         try {
             setIsLoading(true);
-            const response = await fetch(`http://localhost:4000/api/v1/user/userinfo`, {
+            const response = await fetch(`https://stylr-ui-backend.vercel.app/api/v1/user/userinfo`, {
                 method: "GET",
                 headers: {
                     Authorization: authorizationToken,

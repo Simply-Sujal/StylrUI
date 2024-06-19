@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import stylrlogo from "../assets/design.png"
+
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -14,8 +16,8 @@ const Footer = () => {
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
                             <Link to="https://skillez.in/" className="flex items-center" onClick={scrollToTop}>
-                                <img src="" className="h-8 me-3" alt="KK Logo" />
-                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">StylrUI</span>
+                                <img className="h-8 w-8 md:h-[80px] md:w-[80px] cursor-pointer" src={stylrlogo} alt="Logo" />
+                                <span className="self-center text-5xl font-roboto font-semibold whitespace-nowrap dark:text-white ml-2">Stylr<span className='text-orange-500'>UI</span></span>
                             </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">

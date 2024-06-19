@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FaGithub, FaBars } from 'react-icons/fa';
 import { IoIosArrowRoundForward } from "react-icons/io";
-import websiteLogo from "../assets/websitelogo.webp";
+// import websiteLogo from "../assets/websitelogo.webp";
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../store/Auth';
+import stylrlogo from "../assets/design.png"
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,15 +43,8 @@ const NavBar = () => {
                 {/* Left: Logo */}
                 <div className="flex items-center space-x-4 md:ml-10">
                     <Link to="/" onClick={scrollToTop}>
-                        <img className="h-8 w-8 md:h-24 md:w-24 cursor-pointer" src={websiteLogo} alt="Logo" />
+                        <img className="h-12 w-12 md:h-[70px] md:w-[130px] cursor-pointer object-contain" src={stylrlogo} alt="Logo" />
                     </Link>
-                    {/* <div className="hidden md:block relative">
-                        <input
-                            type="text"
-                            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100"
-                            placeholder="Search..."
-                        />
-                    </div> */}
                 </div>
 
                 {/* Center: Navigation Links */}

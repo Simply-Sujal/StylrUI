@@ -58,7 +58,7 @@ const OurSpeciality = () => {
 
                     </main>
                     <div className=' p-6 flex justify-center w-full'>
-                        <img src={prebuiltImage} alt="Creative Design" className='w-full h-auto md:h-[350px]' />
+                        <img src={prebuiltImage} alt="Creative Design" className='w-full h-auto md:h-[350px]' height={100} width={100} />
                     </div>
                 </section>
             </main>

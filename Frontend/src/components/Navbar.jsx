@@ -105,7 +105,7 @@ const NavBar = () => {
                 {/* Right: GitHub Link and Sign In */}
                 <div className="flex items-center space-x-5 pr-0 md:pr-16">
                     <a href="https://github.com/Simply-Sujal" target='_blank' className="text-gray-800 hover:text-gray-600">
-                        <FaGithub size={24} />
+                        <FaGithub size={24} /> <span className='hidden'>Github</span>
                     </a>
 
                     {isTokenAvailable ? (
@@ -182,9 +182,6 @@ const NavBar = () => {
                     >
                         Pricing & FAQ
                     </Link>
-                    <a href="https://github.com/Simply-Sujal" className="text-gray-800 hover:text-gray-600 flex items-center">
-                        <FaGithub size={24} />
-                    </a>
                 </div>
             </div>
         </nav>

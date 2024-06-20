@@ -68,7 +68,7 @@ const ComponentDisplay = () => {
             )
             setComponents(components.map(component => component._id === id ? response.data.updatedCode : component))
         } catch (error) {
-            console.log("Error unliking component")
+            console.log("Error unliking component", error)
         }
     }
 

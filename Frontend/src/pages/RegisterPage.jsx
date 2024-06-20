@@ -78,7 +78,7 @@ const RegisterPage = () => {
                 <h2 className="text-4xl font-roboto font-extrabold mb-3">Create an account</h2>
                 <p className='text-[17px] font-roboto font-semibold text-slate-600 mb-5'>Join our community of designers and developers to get access to hundreds of UI components, plugins, resources, and design systems.</p>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Name</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Name</label>
                     <input
                         type="text"
                         name="name"
@@ -89,7 +89,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Profession</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Profession</label>
                     <input
                         type="text"
                         name="profession"
@@ -100,7 +100,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Location</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Location</label>
                     <input
                         type="text"
                         name="location"
@@ -111,7 +111,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Email</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Email</label>
                     <input
                         type="email"
                         name="email"
@@ -122,7 +122,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-roboto font-bold">Password</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Password</label>
                     <input
                         type="password"
                         name="password"
@@ -132,7 +132,7 @@ const RegisterPage = () => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label className="block text-gray-700 font-roboto font-bold">Profile Image (Less than 1mb size)</label>
+                    <label className="block text-gray-700 font-roboto font-bold"><span className='text-red-500'>*</span> Profile Image (Less than 1mb size)</label>
                     <input
                         type="file"
                         name="image"

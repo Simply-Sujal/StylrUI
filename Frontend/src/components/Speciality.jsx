@@ -9,7 +9,7 @@ const Speciality = (props) => {
                 <h1 className='font-roboto font-bold text-2xl md:text-[20px] pt-3'>{mainHeading}</h1>
                 <p className='  mx-auto text-slate-600 leading-6 text-[15px] md:text-[16px] pt-5 md:pt-3 font-mulsih font-semibold tracking-wide text-start'>{aboutHeading}</p>
             </div>
-            <img src={topicImage} alt="" className='w-full' />
+            <img src={topicImage} alt="topicimage" className='w-full' height={100} width={100} />
         </div>
     )
 }

@@ -96,7 +96,7 @@ const Blockcodes = () => {
                             </div>
 
                             {viewImage ? (
-                                <img src={block.blockImage} alt={block.title} className='w-full h-auto mb-2 rounded-md p-4' />
+                                <img src={block.blockImage} alt={block.title} className='w-full h-auto mb-2 rounded-md p-4' width={100} height={100} />
                             ) : (
                                 <div className="p-4">
                                     <SyntaxHighlighter showLineNumbers language="javascript" style={okaidia}>

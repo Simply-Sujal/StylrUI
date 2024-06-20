@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CategoryComponent from './CategoryComponent';
 import categories from '../../public/categories';
 import LandingPageUniversal from '../components/LandingPageUniversal';
-import blockLandingImage from "../assets/BlockLanding.webp"
+import blockLandingImage from "../assets/BlockLanding.webp";
 import StartContributing from '../components/StartContributing';
-
-
 
 const ComponentsCategory = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -29,7 +27,6 @@ const ComponentsCategory = () => {
                     landingImage={blockLandingImage}
                 />
                 <div className='mx-auto pt-20 md:pt-28'>
-                    {/* <h1 className='font-roboto font-extrabold text-gray-500 text-5xl mb-5 pl-3'>Best Kurated Komponents</h1> */}
                     <div className='flex justify-center md:justify-start mb-4 ml-0 md:ml-3'>
                         <input
                             type='text'
@@ -43,7 +40,9 @@ const ComponentsCategory = () => {
                         {filteredCategories.map(category => (
                             <div key={category.category} className='hover:scale-105 transition-all duration-150'>
                                 <button
-                                    onClick={() => handleCategoryClick(category.category)}
+                                    onClick={() => {
+                                        handleCategoryClick(category.category);
+                                    }}
                                     className='block w-full'
                                 >
                                     <CategoryComponent

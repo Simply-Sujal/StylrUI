@@ -15,7 +15,7 @@ const OurSpeciality = () => {
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <div className='text-center'>
                     <Topic
-                        smallHeading="Kurated Komponent - Real"
+                        smallHeading="StylrUI - Real"
                         mainHeading="Premium Tailwind CSS Components"
                         aboutHeading="Elevate your web development process with our curated collection of premium Tailwind CSS components."
                     />

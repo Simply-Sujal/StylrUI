@@ -10,9 +10,9 @@ const MainFeature = () => {
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <div className='text-center'>
                     <Topic
-                        smallHeading="Kurated Komponent - Free"
+                        smallHeading="StylrUI - Free"
                         mainHeading="Explore some of its features"
-                        aboutHeading="Get Kurated Komponent and take advantage of its free components and features that will help you set up your web project quickly."
+                        aboutHeading="Get StylrUI and take advantage of its free components and features that will help you set up your web project quickly."
                     />
                 </div>
 

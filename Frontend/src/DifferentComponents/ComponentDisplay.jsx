@@ -5,7 +5,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaRegCopy, FaCopy, FaHeart, FaRegHeart } from "react-icons/fa";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ClipLoader } from 'react-spinners';
 
 const ComponentDisplay = () => {
     const { category } = useParams();
@@ -21,6 +23,7 @@ const ComponentDisplay = () => {
             try {
                 const response = await axios.get(`https://stylr-ui-backend.vercel.app/api/v1/code/category/${category}`);
                 setComponents(response.data.codes);
+                window.scrollTo(0, 0)
             } catch (error) {
                 setError('Error fetching components');
                 console.error("Error fetching components", error);
@@ -37,12 +40,16 @@ const ComponentDisplay = () => {
         setTimeout(() => setCopiedId(null), 1500); // Reset copiedId after 1.5 seconds
     };
 
-
-    // get the token from local storage 
+    // Get the token from local storage 
     const token = localStorage.getItem('token');
 
-    // now lets write for like and dislike api calling 
+    // Like feature, API calling 
     const handleLike = async (id) => {
+        if (!token) {
+            toast.error("Please log in to like the component.");
+            return;
+        }
+
         try {
             const response = await axios.put(
                 'https://stylr-ui-backend.vercel.app/api/v1/code/likecode',
@@ -55,29 +62,40 @@ const ComponentDisplay = () => {
             );
             setComponents(components.map(component => component._id === id ? response.data.updatedCode : component));
         } catch (error) {
-            console.log("Error liking the components", error)
+            console.log("Error liking the component", error);
         }
-    }
+    };
 
-    // dislike feature , api calling
+    // Unlike feature, API calling
     const handleUnlike = async (id) => {
+        if (!token) {
+            toast.error("Please log in to unlike the component.");
+            return;
+        }
+
         try {
-            const response = await axios.put('https://stylr-ui-backend.vercel.app/api/v1/code/dislikecode',
+            const response = await axios.put(
+                'https://stylr-ui-backend.vercel.app/api/v1/code/dislikecode',
                 { postId: id },
                 { headers: { Authorization: `Bearer ${token}` } }
-            )
-            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component))
+            );
+            setComponents(components.map(component => component._id === id ? response.data.updatedCode : component));
         } catch (error) {
-            console.log("Error unliking component", error)
+            console.log("Error unliking component", error);
         }
-    }
+    };
 
+    if (loading) return (
+        <div className='flex justify-center items-center min-h-screen'>
+            <ClipLoader size={60} color={'#123abc'} loading={loading} />
+        </div>
+    );
 
-    if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <section className='w-full pt-28'>
+            <ToastContainer />
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <h1 className='text-5xl font-roboto font-bold mb-4'>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4'>
@@ -86,14 +104,13 @@ const ComponentDisplay = () => {
                             <h3 className='text-[18px] md:text-2xl font-mulsih font-bold mb-2 text-blue-500'>{component.title.charAt(0).toUpperCase() + component.title.slice(1)}</h3>
                             {component.codeImage && <img src={component.codeImage} alt={component.title} className='w-full h-64 object-contain mb-4' />}
 
-                            <div className='relative'>
-                                <SyntaxHighlighter language="javascript" style={okaidia} showLineNumbers>
-                                    {component.code}
-                                </SyntaxHighlighter>
-                                <CopyToClipboard
-                                    text={component.code}
-                                    onCopy={() => handleCopy(component._id)}
-                                >
+                            <div className='relative max-w-full'>
+                                <div className='max-h-80 overflow-auto'>
+                                    <SyntaxHighlighter language="javascript" style={okaidia} showLineNumbers>
+                                        {component.code}
+                                    </SyntaxHighlighter>
+                                </div>
+                                <CopyToClipboard text={component.code} onCopy={() => handleCopy(component._id)}>
                                     <button className='absolute top-2 right-2 bg-blue-500 text-white py-2 px-4 rounded'>
                                         {copiedId === component._id ? <FaCopy /> : <FaRegCopy />}
                                     </button>

@@ -9,8 +9,8 @@ const SupportingTech = () => {
                 <div class="text-center py-4">
                     <Topic
                         smallHeading="Integration Ready"
-                        mainHeading="KuratedKomponent Compatibility with Technologies"
-                        aboutHeading="Enhance your workflow with seamless integrations for your favorite tools using Kurated Komponent."
+                        mainHeading="StylrUI Compatibility with Technologies"
+                        aboutHeading="Enhance your workflow with seamless integrations for your favorite tools using StylrUI."
                     />
                 </div>
 

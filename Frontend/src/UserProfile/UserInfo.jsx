@@ -54,7 +54,7 @@ const UserInfo = () => {
                         <h2 className='text-2xl font-roboto font-bold text-gray-800 mb-4'>About Me</h2>
                         <p className='text-lg text-gray-700 font-mulsih font-bold'>Hi, my name is {userInfo.name},</p>
                         <p className='text-lg text-gray-700 font-mulsih font-bold mb-3'>I am {capitalizeFirstLetter(userInfo.profession)} from {capitalizeFirstLetter(userInfo.location)}.</p>
-                        <p className='text-lg text-gray-700 font-mulsih font-bold'>I am very passionate about building multiple things and I love to contribute as much as I can for kodeKomponent. I love using different components to build and make my projects successful.</p>
+                        <p className='text-lg text-gray-700 font-mulsih font-bold'>I am very passionate about building diverse projects and contributing extensively to StylrUI. I enjoy using various components to create successful projects.</p>
                     </div>
 
                     <ParticularUserCodes />

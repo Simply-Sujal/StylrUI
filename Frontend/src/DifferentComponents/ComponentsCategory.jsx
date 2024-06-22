@@ -16,6 +16,10 @@ const ComponentsCategory = () => {
 
     const handleCategoryClick = (categoryName) => {
         navigate(`/components/${categoryName}`);
+
+        window.scrollTo({
+            top: 0,
+        });
     };
 
     return (

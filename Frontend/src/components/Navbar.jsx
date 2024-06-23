@@ -41,9 +41,10 @@ const NavBar = () => {
         <nav className="bg-white fixed w-full top-14 z-50 shadow-sm">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
                 {/* Left: Logo */}
-                <div className="flex items-center space-x-4 md:ml-10">
-                    <Link to="/" onClick={scrollToTop}>
-                        <img className="h-12 w-12 md:h-[70px] md:w-[130px] cursor-pointer object-contain" src={stylrlogo} alt="Logo" />
+                <div className="flex items-center space-x-4 md:ml-8">
+                    <Link to="/" className="flex items-center" onClick={scrollToTop}>
+                        <img className="h-8 w-8 md:h-[70px] md:w-[70px] cursor-pointer" src={stylrlogo} alt="Logo" />
+                        <span className="self-center text-4xl md:text-5xl font-dancing font-semibold whitespace-nowrap dark:text-white ml-2">Stylr<span className='text-orange-500'>UI</span></span>
                     </Link>
                 </div>
 

@@ -8,9 +8,9 @@ const UserProfile = () => {
 
     return (
         <>
-            <div className={`${isTokenAvailable ? "bg-white" : "bg-orange-100"} w-full h-auto flex items-center justify-center md:pt-[120px]`}>
+            <div className={`${isTokenAvailable ? "bg-white" : "bg-orange-100"} w-full h-auto flex items-center justify-center pt-28 md:pt-[120px]`}>
                 <div className="w-full rounded-lg pt-5">
-                    <div className="flex justify-between flex-row-reverse items-center mb-4 px-20">
+                    <div className="flex justify-between flex-row-reverse items-center mb-4 px-2 md:px-20">
                         {
                             isTokenAvailable ? (
                                 <Link to="/logout" className="rounded relative inline-flex group items-center justify-center px-3 py-[3px] m-1 cursor-pointer border-b-4 border-l-2 active:border-orange-600 active:shadow-none shadow-lg bg-gradient-to-tr from-orange-600 to-orange-500 border-orange-700 text-white">
@@ -26,7 +26,6 @@ const UserProfile = () => {
                             )
                         }
                     </div>
-
                 </div>
             </div >
             <UserInfo />

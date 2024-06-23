@@ -33,7 +33,7 @@ const UserInfo = () => {
     return (
         <section className='w-full'>
             <main className='flex flex-col lg:flex-row justify-center px-4 sm:px-20'>
-                <div className='mt-16 md:mt-0 w-full lg:w-2/3 relative rounded-tl-xl rounded-tr-xl'>
+                <div className='w-full lg:w-2/3 relative rounded-tl-xl rounded-tr-xl'>
                     <div className='w-full'>
                         <img src={coverImage} alt="cover photo" className='h-56 sm:h-96 w-full object-cover rounded-br-xl rounded-bl-xl rounded-tl-xl rounded-tr-xl' />
                     </div>

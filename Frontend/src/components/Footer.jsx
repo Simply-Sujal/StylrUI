@@ -17,10 +17,10 @@ const Footer = () => {
                         <div className="mb-6 md:mb-0">
                             <Link to="/" className="flex items-center" onClick={scrollToTop}>
                                 <img className="h-8 w-8 md:h-[80px] md:w-[80px] cursor-pointer" src={stylrlogo} alt="Logo" />
-                                <span className="self-center text-5xl font-roboto font-semibold whitespace-nowrap dark:text-white ml-2">Stylr<span className='text-orange-500'>UI</span></span>
+                                <span className="self-center text-5xl font-dancing font-semibold whitespace-nowrap dark:text-white ml-2">Stylr<span className='text-orange-500'>UI</span></span>
                             </Link>
                         </div>
-                        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                        <div className="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-">
                             <div>
                                 <h2 className="mb-6 text-sm font-mulsih font-extrabold text-gray-900 uppercase dark:text-white">Resources</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-roboto font-medium">

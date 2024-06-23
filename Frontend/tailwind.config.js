@@ -21,7 +21,8 @@ export default {
       mukta: ["Mukta", "sans-serif"],
       mulsih: ["Mulish", "sans-serif"],
       asap: ["Asap", "sans-serif"],
-      roboto: ["Roboto", "sans-serif"]
+      roboto: ["Roboto", "sans-serif"],
+      dancing: ["Dancing Script", "cursive"]
     }
   },
   plugins: [],

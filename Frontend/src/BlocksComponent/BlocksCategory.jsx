@@ -5,6 +5,7 @@ import Blockview from './Blockview';
 import LandingPageUniversal from '../components/LandingPageUniversal';
 import blockLandingImage from "../assets/BlockLanding.webp";
 import StartContributing from '../components/StartContributing';
+import Perks from '../components/Perks';
 
 const BlocksCategory = () => {
     const [searchBlock, setSearchBlock] = useState("");
@@ -22,8 +23,8 @@ const BlocksCategory = () => {
     }
 
     return (
-        <section className='w-full mt-10'>
-            <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-16'>
+        <section className='w-full mt-10 mb-10'>
+            <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-10'>
                 <LandingPageUniversal
                     mainHeading="Explore Tailwind CSS & React Blocks for Your Website"
                     aboutHeading="Hero blocks play a pivotal role on your homepage by showcasing promotional content or key visuals that embody the essence of your product or service. They effectively create a compelling first impression, serving as impactful banners. Below, explore examples of Hero Blocks crafted using Tailwind CSS and React."
@@ -60,6 +61,7 @@ const BlocksCategory = () => {
                     </section>
                 </div>
             </main>
+            <Perks />
             <StartContributing
                 mainHeading="Do you want to start contributing to blocks?"
                 formLink="/blockSubmissionForm"

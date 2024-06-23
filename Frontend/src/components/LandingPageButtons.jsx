@@ -13,7 +13,7 @@ const LandingPageButtons = () => {
                 <Link
                     to="/docs"
                     onClick={scrollToTop}
-                    className="inline-flex items-center justify-center px-6 py-2 text-base font-roboto font-bold tracking-wider leading-6 text-white whitespace-no-wrap bg-orange-500 border border-orange-500 rounded-lg shadow-sm hover:bg-orange-500  transition-all duration-100"
+                    className="inline-flex items-center justify-center px-6 py-2 text-base font-roboto font-bold tracking-wider leading-6 text-white whitespace-no-wrap bg-orange-500 border border-orange-500 rounded-lg shadow-sm hover:bg-orange-600  transition-all duration-100"
                     data-rounded="rounded-md"
                     data-primary="blue-600"
                     data-primary-reset="{}"

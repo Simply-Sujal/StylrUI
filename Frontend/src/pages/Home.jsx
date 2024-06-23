@@ -11,6 +11,7 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 // import ComponentsCategory from '../DifferentComponents/ComponentsCategory'
 import HomeCategoryShow from '../Home/HomeCategoryShow'
+import Perks from '../components/Perks'
 
 const Home = () => {
     return (
@@ -25,6 +26,7 @@ const Home = () => {
             {/* here I will add our latest components example for about 20 or 25  */}
             <HomeCategoryShow />
             <OurSpeciality />
+            <Perks />
             <JoinOurCommunity />
             <Newsletter />
         </>

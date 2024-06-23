@@ -11,7 +11,7 @@ import figmaaImage from "../assets/figmaa.jpg"
 
 const OurSpeciality = () => {
     return (
-        <section className='w-full mt-10'>
+        <section className='w-full mt-10 mb-20'>
             <main className='px-4 md:px-20 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <div className='text-center'>
                     <Topic

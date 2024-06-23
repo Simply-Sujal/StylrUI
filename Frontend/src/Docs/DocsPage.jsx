@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Perks from '../components/Perks';
+import Newsletter from '../components/Newsletter';
 
 // Updated instructions object with HTML content and Tailwind CSS classes for styling
 const instructions = {
@@ -147,38 +149,44 @@ const DocsPage = () => {
   const [selectedFramework, setSelectedFramework] = useState('installation');
 
   return (
-    <div className="flex flex-col md:flex-row h-screen overflow-hidden mt-28">
-      <div className="md:w-1/4 bg-gray-100 p-4 h-full overflow-y-auto">
-        <h2 className="text-3xl font-bold mb-4 p-2 font-roboto">Installation Guides</h2>
-        <ul>
-          {Object.keys(instructions).map((framework) => (
-            <li key={framework} className="mb-2">
-              <button
-                className={`block w-full font-roboto text-xl font-medium hover:text-orange-600 text-left p-2 rounded ${selectedFramework === framework
-                  ? 'text-orange-500 bg-orange-100'
-                  : 'text-slate-700 hover:bg-orange-100'
-                  }`}
-                onClick={() => setSelectedFramework(framework)}
-              >
-                {framework.charAt(0).toUpperCase() + framework.slice(1)}
-              </button>
-            </li>
+    <>
+      <div className="flex flex-col md:flex-row h-screen overflow-hidden mt-28 mb-20">
+        <div className="md:w-1/4 bg-gray-100 p-4 h-full overflow-y-auto">
+          <h2 className="text-3xl font-bold mb-4 p-2 font-roboto">Installation Guides</h2>
+          <ul>
+            {Object.keys(instructions).map((framework) => (
+              <li key={framework} className="mb-2">
+                <button
+                  className={`block w-full font-roboto text-xl font-medium hover:text-orange-600 text-left p-2 rounded ${selectedFramework === framework
+                    ? 'text-orange-500 bg-orange-100'
+                    : 'text-slate-700 hover:bg-orange-100'
+                    }`}
+                  onClick={() => setSelectedFramework(framework)}
+                >
+                  {framework.charAt(0).toUpperCase() + framework.slice(1)}
+                </button>
+              </li>
 
-          ))}
-        </ul>
-      </div>
-      <div className="md:w-3/4 ml-auto p-4 overflow-y-auto">
-        <div className="max-w-6xl mx-auto">
-          {/* <h2 className="text-xl font-bold mb-4">
+            ))}
+          </ul>
+        </div>
+        <div className="md:w-3/4 ml-auto p-4 overflow-y-auto">
+          <div className="max-w-6xl mx-auto">
+            {/* <h2 className="text-xl font-bold mb-4">
             {selectedFramework.charAt(0).toUpperCase() + selectedFramework.slice(1)} Installation
           </h2> */}
-          <div
-            className="bg-white p-6 rounded shadow"
-            dangerouslySetInnerHTML={{ __html: instructions[selectedFramework] }}
-          ></div>
+            <div
+              className="bg-white p-6 rounded shadow"
+              dangerouslySetInnerHTML={{ __html: instructions[selectedFramework] }}
+            ></div>
+          </div>
         </div>
       </div>
-    </div>
+
+      <Perks />
+      <Newsletter />
+    </>
+
   );
 };
 

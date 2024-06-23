@@ -5,6 +5,7 @@ import categories from '../../public/categories';
 import LandingPageUniversal from '../components/LandingPageUniversal';
 import blockLandingImage from "../assets/BlockLanding.webp";
 import StartContributing from '../components/StartContributing';
+import Perks from '../components/Perks';
 
 const ComponentsCategory = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -23,7 +24,7 @@ const ComponentsCategory = () => {
     };
 
     return (
-        <section className='w-full mt-10'>
+        <section className='w-full mt-10 mb-10'>
             <main className='px-4 md:px-16 pt-10 md:pt-14 md:pb-20 pb-16'>
                 <LandingPageUniversal
                     mainHeading="Discover Free Tailwind CSS & React Components"
@@ -60,10 +61,12 @@ const ComponentsCategory = () => {
                     </section>
                 </div>
             </main>
+            <Perks />
             <StartContributing
                 mainHeading="Do you want to start contributing to components ?"
                 formLink="/codesubmissionform"
             />
+
         </section>
     );
 };

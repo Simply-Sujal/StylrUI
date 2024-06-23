@@ -95,11 +95,6 @@ const categories = [
         "image": "./modal.jpg"
     },
     {
-        "category": "Navbar",
-        "description": "Navbar is used to show a navigation bar on the top of the page.",
-        "image": "./NavBar.png"
-    },
-    {
         "category": "Pagination",
         "description": "Pagination is a group of buttons that allow the user to navigate between a set of related content.",
         "image": "./Pagination.png"

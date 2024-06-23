@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <Link to="https://skillez.in/" className="flex items-center" onClick={scrollToTop}>
+                            <Link to="/" className="flex items-center" onClick={scrollToTop}>
                                 <img className="h-8 w-8 md:h-[80px] md:w-[80px] cursor-pointer" src={stylrlogo} alt="Logo" />
                                 <span className="self-center text-5xl font-roboto font-semibold whitespace-nowrap dark:text-white ml-2">Stylr<span className='text-orange-500'>UI</span></span>
                             </Link>

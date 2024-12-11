@@ -2,6 +2,8 @@
 
 ### Stylrui is a lightweight, easy-to-use component and block library built with React and Tailwind CSS. It offers a collection of pre-designed, customizable components and blocks that can be directly integrated into any project without the need for extra dependencies. With Stylrui, you can quickly implement responsive and beautiful UIs while keeping the development process smooth and efficient. It is compatible with any library or framework that uses Tailwind CSS, such as React, Next.js, or any other Tailwind-based project.
 
+![stylrui](https://github.com/user-attachments/assets/6ee45c5b-7dd8-47b5-8838-9f3cf5345b66)
+
 ## Features
 ### No Installation Required: Stylrui is ready to use out of the box. No need to install any dependencies—just copy the components or blocks and start building.
 ### Tailwind CSS: Built using Tailwind CSS, making it fully customizable and easy to integrate with any Tailwind-based framework.
@@ -11,6 +13,8 @@
 ### Customizable: Tailwind’s utility classes ensure that you can tweak every component to fit your project’s style without writing extra CSS.
 ### Lightweight: The library is designed to be lightweight and optimized for fast performance.
 
+![components](https://github.com/user-attachments/assets/021e03d3-4dec-4302-9e99-ab762428cf75)
+
 ## Getting Started
 ### To get started, simply:
 
@@ -18,6 +22,8 @@
 ### Copy the code of the desired component or block from the website.
 ### Paste the code into your React/Next.js or any other project that uses Tailwind CSS.
 ### Customize the components using Tailwind’s utility classes to match your project’s design needs.
+
+![blocks](https://github.com/user-attachments/assets/a415c50c-2a37-4125-9963-60b2651ee43d)
 
 ## Compatibility
 ### Stylrui is compatible with any framework or library that uses Tailwind CSS. Some examples include:
